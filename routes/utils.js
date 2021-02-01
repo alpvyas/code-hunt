@@ -49,6 +49,11 @@ const userValidators = [
       }
       return true;
     }),
+  check("bio")
+    .exists({ checkfalsy: true })
+    .withMessage("Please enter a short Bio")
+    .isLength({ max: 5000 })
+    .withMessage("Bio must be less than 5000 characters in length"),
 ];
 const loginValidators = [
   check("email")

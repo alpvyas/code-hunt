@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
 });
 //log user in
 router.post(
-  "/login",
+  "/",
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
@@ -51,11 +51,47 @@ router.post(
       });
   })
 );
+router.get("/register", csrfProtection, (req, res) => {
+  const user = db.User.build();
+
+  res.render("register", { user, token: csrfToken() });
+});
 //register / signup
 router.post(
-  "/",
-  csrfProteciton,
-  asyncHandler(async (req, res, next) => {})
+  "/register",
+  csrfProtection,
+  userValidators,
+  asyncHandler(async (req, res, next) => {
+    const { first_name, last_name, email, bio, password } = req.body;
+    const user = db.User.build({
+      first_name,
+      last_name,
+      email,
+      bio,
+    });
+    const validatorErrors = validationResult(req);
+    if (validatorErrors.isEmpty()) {
+      const hashedPassword = await bcrypt.hash(password, 8);
+      user.hashedPassword = hashedPassword;
+      await user.save();
+      loginUser(req, res, user);
+      return req.session.save(() => {
+        return res.redirect("/home");
+      });
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("/register", {
+        errors,
+        title: "Login",
+        token: req.csrfToken(),
+        user,
+      });
+    }
+  })
 );
+router.post("/logout", (req, res) => {
+  logoutUser(req, res);
+  res.redirect("/");
+});
 
 module.exports = router;
