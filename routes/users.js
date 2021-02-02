@@ -31,7 +31,7 @@ router.post(
     let errors = [];
     const validatorErrors = validationResult(req);
     const { email, password } = req.body;
-    const user = await db.User.findOne({ where: { email } });
+    const user = await db.User.findOne({ where: { email: email } });
     if (validatorErrors.isEmpty()) {
       if (user) {
         const passwordMatch = await bcrypt.compare(
@@ -40,8 +40,9 @@ router.post(
         );
         if (passwordMatch) {
           loginUser(req, res, user);
+          restoreUser(req, res, next);
           return req.session.save(() => {
-            return res.redirect("/home");
+            return res.render("home");
           });
         } 
       } 
@@ -50,6 +51,7 @@ router.post(
       errors = validatorErrors.array().map((error) => error.msg);
     }
     res.render("login", {
+      login: true,
       title: "Login",
       errors,
       token: req.csrfToken(),
@@ -63,9 +65,8 @@ router.post(
     const email = "demo@demo.com";
     const user = await db.User.findOne({ where: { email } });
     loginUser(req, res, user);
-    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
     return req.session.save(() => {
-      return res.render("home", { title: "Home", links });
+      return res.redirect("/home");
     });
   })
 );
@@ -107,6 +108,7 @@ router.post(
         title: "Register",
         token: req.csrfToken(),
         user,
+        registerStatus: false
       });
     }
   })
@@ -122,7 +124,7 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
-    res.render("home", { title: "Home", links });
+    res.render("home", { title: "Home", links});
   })
 );
 router.get(
