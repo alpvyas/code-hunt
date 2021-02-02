@@ -12,9 +12,18 @@ const {
 } = require("./utils");
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.render("login");
-});
+router.get(
+  "/",
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const user = { first_name: '', last_name: '', email: '', username: '', bio: '' };
+    res.render("login", {
+      title: "Login",
+      user,
+      token: req.csrfToken(),
+    });
+  })
+);
 //log user in
 router.post(
   "/",
@@ -66,9 +75,10 @@ router.post(
 router.get("/register", csrfProtection, (req, res) => {
   const user = db.User.build();
 
-  res.render("register", { user, token: req.csrfToken() });
+  res.render("login", { user, token: req.csrfToken() });
 });
-//register / signup
+
+// register / signup
 router.post(
   "/register",
   csrfProtection,
@@ -93,11 +103,11 @@ router.post(
       });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render("register", {
+      res.render("login", {
         errors,
         title: "Login",
-        token: req.csrfToken(),
         user,
+        token: req.csrfToken(),
       });
     }
   })
