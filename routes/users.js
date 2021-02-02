@@ -21,10 +21,10 @@ router.post(
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
-    const errors = [];
+    let errors = [];
     const validatorErrors = validationResult(req);
     const { email, password } = req.body;
-    const user = await db.User.findOne({ where: { email } });
+    const user = await db.User.findOne({ where: { email: email } });
     if (validatorErrors.isEmpty()) {
       if (user) {
         const passwordMatch = await bcrypt.compare(
@@ -33,8 +33,9 @@ router.post(
         );
         if (passwordMatch) {
           loginUser(req, res, user);
+          restoreUser(req, res, next);
           return req.session.save(() => {
-            return res.redirect("/home");
+            return res.render("home");
           });
         } 
         errors.push("Login failed - Invalid Credentials")
@@ -56,9 +57,8 @@ router.post(
     const email = "demo@demo.com";
     const user = await db.User.findOne({ where: { email } });
     loginUser(req, res, user);
-    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
     return req.session.save(() => {
-      return res.render("home", { title: "Home", links });
+      return res.redirect("/home");
     });
   })
 );
@@ -113,14 +113,14 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
-    res.render("home", { title: "Home", links });
+    res.render("home", { title: "Home", links});
   })
 );
 router.get(
   "/profile",
   requireAuth,
   asyncHandler(async (req, res) => {
-    let userId = req.locals.user.id;
+    let userId = res.locals.user.id;
     const user = await db.User.findByPk(userId);
     const userLinks = await db.Video.findAll({
       where: { userId },
