@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+      block head
+        title= title
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+  body
+      include utils.pug
+      +validationErrorSummary(errors)
+      form(action='/register' method='post')
+        input(type='hidden' name='_csrf' value=token)
+        +field('First Name', 'first_name', user.first_name)
+        +field('Last Name', 'last_name', user.last_name)
+        +field('Username', 'username', user.username)
+        label(for="bio") Bio
+        textarea(name="bio", cols="30", rows="10", value=user.bio)
+        +field('Email Address', 'email', user.email)
+        +field('Password', 'password', user.password, 'password')
+        +field('Confirm Password', 'confirmPassword', '', 'password')
+        div(class='py-4')
+          button(type='submit' class='btn btn-primary') Register
+          a(href='/' class='btn btn-warning ml-2') Cancel
+      div
+        form(action='/demo' method='post')
+          input(type='hidden' name='_csrf' value=token)
+          button(type='submit' class='btn btn-primary') Demo    

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+      block head
+        title= title
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+  body
+      include utils.pug
+      +validationErrorSummary(errors)
+      form(action='/' method='post')
+        input(type='hidden' name='_csrf' value=token)
+        +field('Email Address', 'emailAddress', emailAddress)
+        +field('Password', 'password', null, 'password')
+        div(class='py-4')
+          button(type='submit' class='btn btn-primary') Login
+          a(href='/' class='btn btn-warning ml-2') Cancel
+      div
+        form(action='/demo' method='post')
+          input(type='hidden' name='_csrf' value=token)
+          button(type='submit' class='btn btn-primary') Demo   
