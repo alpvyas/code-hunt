@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const db = require("../models");
+const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser, restoreUser, requireAuth } = require("../auth");
 const {
@@ -51,10 +51,22 @@ router.post(
       });
   })
 );
+
+router.post(
+  "/demo",
+  asyncHandler(async (req, res, next) => {
+    const email = "demo@demo.com";
+    const user = await db.User.findOne({ where: { email } });
+    loginUser(req, res, user);
+    return req.session.save(() => {
+      return res.redirect("/home");
+    });
+  }));
+
 router.get("/register", csrfProtection, (req, res) => {
   const user = db.User.build();
 
-  res.render("register", { user, token: csrfToken() });
+  res.render("register", { user, token: req.csrfToken() });
 });
 //register / signup
 router.post(
@@ -62,11 +74,12 @@ router.post(
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res, next) => {
-    const { first_name, last_name, email, bio, password } = req.body;
+    const { first_name, last_name, email, username, bio, password } = req.body;
     const user = db.User.build({
       first_name,
       last_name,
       email,
+      username,
       bio,
     });
     const validatorErrors = validationResult(req);
@@ -80,7 +93,7 @@ router.post(
       });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render("/register", {
+      res.render("register", {
         errors,
         title: "Login",
         token: req.csrfToken(),
