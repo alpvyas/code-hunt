@@ -30,7 +30,7 @@ router.post(
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
-    const errors = [];
+    let errors = [];
     const validatorErrors = validationResult(req);
     const { email, password } = req.body;
     const user = await db.User.findOne({ where: { email } });
@@ -68,12 +68,13 @@ router.post(
     const user = await db.User.findOne({ where: { email } });
     loginUser(req, res, user);
     return req.session.save(() => {
-      return res.redirect("/home");
+      return res.render("home");
     });
   })
 );
 
 router.get("/register", csrfProtection, (req, res) => {
+  
   const user = db.User.build();
 
   res.render("login", { user, token: req.csrfToken() });
@@ -113,7 +114,7 @@ router.post(
     }
   })
 );
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   logoutUser(req, res);
   res.redirect("/");
 });
