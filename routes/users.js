@@ -12,9 +12,16 @@ const {
 } = require("./utils");
 
 /* GET users listing. */
-router.get("/", csrfProtection, function (req, res, next) {
-  res.render("login", { token : req.csrfToken()});
-});
+router.get(
+  "/",
+  csrfProtection,
+  (req, res) => {
+    res.render("login", {
+      title: "Login",
+      token: req.csrfToken(),
+    });
+  }
+);
 //log user in
 router.post(
   "/",
@@ -38,15 +45,16 @@ router.post(
             return res.render("home");
           });
         } 
-        errors.push("Login failed - Invalid Credentials")
-      } else {
-        errors = validatorErrors.array().map((error) => error.msg);
-      }
+      } 
+      errors.push("Login failed - Invalid Credentials")
+    } else {
+      errors = validatorErrors.array().map((error) => error.msg);
     }
     res.render("login", {
+      login: true,
       title: "Login",
-      token: req.csrfToken(),
       errors,
+      token: req.csrfToken(),
     });
   })
 );
@@ -64,11 +72,13 @@ router.post(
 );
 
 router.get("/register", csrfProtection, (req, res) => {
+  
   const user = db.User.build();
 
-  res.render("register", { user, token: req.csrfToken() });
+  res.render("login", { user, token: req.csrfToken() });
 });
-//register / signup
+
+// register / signup
 router.post(
   "/register",
   csrfProtection,
@@ -93,11 +103,12 @@ router.post(
       });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render("register", {
+      res.render("login", {
         errors,
         title: "Register",
         token: req.csrfToken(),
         user,
+        registerStatus: false
       });
     }
   })
@@ -120,7 +131,7 @@ router.get(
   "/profile",
   requireAuth,
   asyncHandler(async (req, res) => {
-    let userId = res.locals.user.id;
+    const userId = res.locals.user.id;
     const user = await db.User.findByPk(userId);
     const userLinks = await db.Video.findAll({
       where: { userId },
