@@ -12,8 +12,8 @@ const {
 } = require("./utils");
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.render("login");
+router.get("/", csrfProtection, function (req, res, next) {
+  res.render("login", { token : req.csrfToken()});
 });
 //log user in
 router.post(
@@ -36,19 +36,17 @@ router.post(
           return req.session.save(() => {
             return res.redirect("/home");
           });
-        } else {
-          errors.push("Login failed - Invalid Credentials");
-        }
+        } 
+        errors.push("Login failed - Invalid Credentials")
       } else {
-        errors.push("Login failed - Invalid Credentials");
         errors = validatorErrors.array().map((error) => error.msg);
       }
-    } else
-      res.render("login", {
-        title: "Login",
-        token: req.csrfToken(),
-        errors,
-      });
+    }
+    res.render("login", {
+      title: "Login",
+      token: req.csrfToken(),
+      errors,
+    });
   })
 );
 
@@ -58,8 +56,9 @@ router.post(
     const email = "demo@demo.com";
     const user = await db.User.findOne({ where: { email } });
     loginUser(req, res, user);
+    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
     return req.session.save(() => {
-      return res.redirect("/home");
+      return res.render("home", { title: "Home", links });
     });
   })
 );
@@ -96,16 +95,18 @@ router.post(
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("register", {
         errors,
-        title: "Login",
+        title: "Register",
         token: req.csrfToken(),
         user,
       });
     }
   })
 );
-router.post("/logout", (req, res) => {
+router.get("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
-  res.redirect("/");
+  return req.session.save(() => {
+        return res.redirect("/");
+      });
 });
 router.get(
   "/home",
