@@ -3,6 +3,7 @@ var router = express.Router();
 const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser, restoreUser, requireAuth } = require("../auth");
+const Sequelize = require("sequelize");
 const {
   loginValidators,
   userValidators,
@@ -85,6 +86,26 @@ router.delete(
     res.redirect("/home");
   })
 );
-router.get("/search");
+//test, if does not pass, change get to put
+router.get(
+  "/search",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const query = req.body;
+    let results = await db.Video.findAll({
+      where: { title: { [Sequelize.Op.iLike]: `%${query}%` } },
+      order: [["updatedAt", "DESC"]],
+    });
+    if (!results) {
+      let language = await db.Language.findOne({
+        where: { name: { [Sequelize.Op.iLike]: `%${query}%` } },
+      });
+      results = await db.Video.findAll({
+        where: { languageId: language.id },
+      });
+    }
+    res.render("home", { results, title: "Search Results" });
+  })
+);
 
 module.exports = router;
