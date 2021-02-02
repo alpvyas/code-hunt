@@ -1,7 +1,7 @@
 const csrf = require("csurf");
 const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require("express-validator");
-const db = require('../db/models');
+const db = require("../db/models");
 const asyncHandler = (handler) => (req, res, next) =>
   handler(req, res, next).catch(next);
 
@@ -64,6 +64,24 @@ const loginValidators = [
     .exists({ checkFalsy: true })
     .withMessage("Please provide a Password"),
 ];
+const videoValidators = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a title")
+    .isLength({ max: 30 })
+    .withMessage("Title must be less than 30 characters"),
+  check("description")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a short description"),
+  check("link")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a Video Link")
+    .isLength({ max: 50 })
+    .withMessage("Link must be less than 50 characters")
+    .isURL()
+    .withMessage("Link must be a valid URL"),
+  check("languageId").exists({ checkFalsy: true }),
+];
 module.exports = {
   csrfProtection,
   asyncHandler,
@@ -71,4 +89,5 @@ module.exports = {
   userValidators,
   validationResult,
   check,
+  videoValidators,
 };

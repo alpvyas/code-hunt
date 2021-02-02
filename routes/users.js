@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser, restoreUser, requireAuth } = require("../auth");
@@ -53,7 +53,7 @@ router.post(
         errors = validatorErrors.array().map((error) => error.msg);
       }
     } else
-      res.render("/", {
+      res.render("login", {
         title: "Login",
         token: req.csrfToken(),
         errors,
@@ -70,7 +70,8 @@ router.post(
     return req.session.save(() => {
       return res.redirect("/home");
     });
-  }));
+  })
+);
 
 router.get("/register", csrfProtection, (req, res) => {
   const user = db.User.build();
@@ -116,5 +117,31 @@ router.post("/logout", (req, res) => {
   logoutUser(req, res);
   res.redirect("/");
 });
+router.get(
+  "/home",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
+    res.render("home", { title: "Home", links });
+  })
+);
+router.get(
+  "/profile",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    let userId = req.locals.user.id;
+    const user = await db.User.findByPk(userId);
+    const userLinks = await db.Video.findAll({
+      where: { userId },
+    });
+    const comments = await db.Comment.findAll({ where: { userId } });
+    res.render("profile", {
+      user,
+      userLinks,
+      comments,
+      title: `${user.first_name} ${user.last_name}`,
+    });
+  })
+);
 
 module.exports = router;
