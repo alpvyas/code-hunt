@@ -12,7 +12,8 @@ html
           a(href='#register') Register
         li.login-tab  
           a(href='#login') Login
-      +validationErrorSummary(errors)
+      .error-display
+        +validationErrorSummary(errors)
       #login
         h1 Welcome Back!
         form.form(id="login-form" action='/' method='post')
@@ -30,18 +31,18 @@ html
           input(type='hidden' name='_csrf' value=token)
           .form-container
             .form-item
-              +field('First Name', 'first_name', user.first_name, 'text')
+              +field('First Name', 'first_name', first_name, 'text')
             .form-item  
-              +field('Last Name', 'last_name', user.last_name, 'text')
+              +field('Last Name', 'last_name', last_name, 'text')
             .form-item  
-              +field('Username', 'username', user.username, 'text')
+              +field('Username', 'username', username, 'text')
             .form-item  
               label(for="bio") Bio
-              textarea(name="bio", cols="30", rows="10", value= user.bio)
+              textarea(name="bio", cols="30", rows="10", value= bio)
             .form-item  
-              +field('Email Address', 'email', user.email, 'email')
+              +field('Email Address', 'email', email, 'email')
             .form-item  
-              +field('Password', 'password', user.password, 'password')
+              +field('Password', 'password', password, 'password')
             .form-item  
               +field('Confirm Password', 'confirmPassword', '', 'password')
           div(class='py-4')

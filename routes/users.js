@@ -15,14 +15,12 @@ const {
 router.get(
   "/",
   csrfProtection,
-  asyncHandler(async (req, res) => {
-    const user = { first_name: '', last_name: '', email: '', username: '', bio: '' };
+  (req, res) => {
     res.render("login", {
       title: "Login",
-      user,
       token: req.csrfToken(),
     });
-  })
+  }
 );
 //log user in
 router.post(
@@ -45,19 +43,17 @@ router.post(
           return req.session.save(() => {
             return res.redirect("/home");
           });
-        } else {
-          errors.push("Login failed - Invalid Credentials");
-        }
-      } else {
-        errors.push("Login failed - Invalid Credentials");
-        errors = validatorErrors.array().map((error) => error.msg);
-      }
-    } else
-      res.render("login", {
-        title: "Login",
-        token: req.csrfToken(),
-        errors,
-      });
+        } 
+      } 
+      errors.push("Login failed - Invalid Credentials")
+    } else {
+      errors = validatorErrors.array().map((error) => error.msg);
+    }
+    res.render("login", {
+      title: "Login",
+      errors,
+      token: req.csrfToken(),
+    });
   })
 );
 
@@ -67,8 +63,9 @@ router.post(
     const email = "demo@demo.com";
     const user = await db.User.findOne({ where: { email } });
     loginUser(req, res, user);
+    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
     return req.session.save(() => {
-      return res.render("home");
+      return res.render("home", { title: "Home", links });
     });
   })
 );
@@ -107,16 +104,18 @@ router.post(
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("login", {
         errors,
-        title: "Login",
-        user,
+        title: "Register",
         token: req.csrfToken(),
+        user,
       });
     }
   })
 );
-router.get("/logout", (req, res) => {
+router.get("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
-  res.redirect("/");
+  return req.session.save(() => {
+        return res.redirect("/");
+      });
 });
 router.get(
   "/home",
@@ -130,7 +129,7 @@ router.get(
   "/profile",
   requireAuth,
   asyncHandler(async (req, res) => {
-    let userId = req.locals.user.id;
+    const userId = res.locals.user.id;
     const user = await db.User.findByPk(userId);
     const userLinks = await db.Video.findAll({
       where: { userId },
