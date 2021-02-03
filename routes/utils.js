@@ -80,6 +80,13 @@ const videoValidators = [
     .withMessage("Link must be less than 50 characters"),
   check("languageId").exists({ checkFalsy: true }),
 ];
+const commentValidators = [
+  check("body")
+    .exists({ checkFalsy: true })
+    .withMessage("Please enter a comment")
+    .isLength({ max: 255 })
+    .withMessage("Comment must be less than 255 characters"),
+];
 module.exports = {
   csrfProtection,
   asyncHandler,
@@ -88,4 +95,5 @@ module.exports = {
   validationResult,
   check,
   videoValidators,
+  commentValidators,
 };
