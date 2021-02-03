@@ -1,31 +1,60 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
-body, header, nav {
-  font-size: 1rem;
-  color: inherit;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  font-weight: normal;
-}
-
-h1 {
-  font-size: 2rem;
-}
 
 .hidden {
   display: none;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 65%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color:gray;
+  /* Center image on left side */
+  background-image: url("./login-page.png");
+  background-position: center;
+  background-size: cover;
+}
+
+/* Control the right side */
+.right {
+  width: 35%;
+  right: 0;
+  background-color:whitesmoke;
+}
+
+/* If you want the content centered horizontally and vertically */
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.form {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.login-tab-group {
+  display: flex;
+}
+
+.error-display {
+  border: 1px solid red;
+  background-color: rgb(243, 193, 193);
+  color: red;
+  border-radius: 5px;
+  width: 100%;
 }
