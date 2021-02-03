@@ -13,5 +13,5 @@ html(lang="en")
         ul
           each comment in comments
             li=comment.body
-            form(method="post" action=`/posts/${video.id}/comments/${comment.id}/delete`)
-              button(type="submit" class=`commentDeleteBtn${comment.id}`) Delete
+            form(method="post" action=`/posts/${video.id}/comments/${comment.id}/delete` class="comment-delete-form")
+              button(type="submit" class= `${comment.id}` id=`${video.id}` value= comment.id) Delete
