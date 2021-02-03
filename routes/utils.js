@@ -77,9 +77,7 @@ const videoValidators = [
     .exists({ checkFalsy: true })
     .withMessage("Please provide a Video Link")
     .isLength({ max: 50 })
-    .withMessage("Link must be less than 50 characters")
-    .isURL()
-    .withMessage("Link must be a valid URL"),
+    .withMessage("Link must be less than 50 characters"),
   check("languageId").exists({ checkFalsy: true }),
 ];
 module.exports = {

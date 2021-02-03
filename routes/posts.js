@@ -26,9 +26,8 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const video = db.Video.build();
-    const languages = db.Language.findAll({ order: [["name", "ASC"]] });
+    const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     res.render("new-post", {
-      title: "New Link",
       video,
       languages,
       token: req.csrfToken(),
@@ -41,14 +40,14 @@ router.post(
   requireAuth,
   videoValidators,
   asyncHandler(async (req, res) => {
-    const languages = db.Language.findAll({ order: [["name", "ASC"]] });
+    const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const { title, description, link, languageId } = req.body;
     const video = db.Video.build({
       title,
       description,
       link,
       languageId,
-      userId: req.locals.user.id,
+      userId: res.locals.user.id,
     });
     const validatorErrors = validationResult(req);
     if (validatorErrors.isEmpty()) {
@@ -57,7 +56,6 @@ router.post(
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("new-post", {
-        title: "New Post",
         video,
         errors,
         token: req.csrfToken(),
@@ -67,16 +65,15 @@ router.post(
   })
 );
 router.get(
-  "/:pid",
+  "/:pid(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
     const video = await db.Video.findByPk(req.params.pid);
     res.render("video", { video, title: `${video.title}` });
   })
 );
-router.delete(
-  "/:pid",
-  csrfProtection,
+router.post(
+  "/:pid/delete",
   requireAuth,
   asyncHandler(async (req, res) => {
     const videoId = parseInt(req.params.pid, 10);
@@ -91,14 +88,16 @@ router.get(
   "/search",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const query = req.body;
+    const query1 = req.query.searchTerm;
+    console.log("query1", query1);
     let results = await db.Video.findAll({
-      where: { title: { [Sequelize.Op.iLike]: `%${query}%` } },
+      where: { title: { [Sequelize.Op.iLike]: `%${query1}%` } },
       order: [["updatedAt", "DESC"]],
     });
-    if (!results) {
+    const query2 = req.query.category;
+    if (query2) {
       let language = await db.Language.findOne({
-        where: { name: { [Sequelize.Op.iLike]: `%${query}%` } },
+        where: { name: { [Sequelize.Op.iLike]: `%${query2}%` } },
       });
       results = await db.Video.findAll({
         where: { languageId: language.id },
