@@ -1,16 +1,36 @@
-extends navbar.pug
 
-block content
-  form(method="post" action="/posts/new")
-    input(type="hidden" name="_csrf" value=token)
-    label(for="title") Title
-    input(id="title" type="text", name="title" value=title)
-    label(for="description") Description
-    textarea(id="description" name="description" required value=description)
-    label(for="link") Link
-    input(id="link" type="text", name="link" required value=link)
-    select(name="languageId")
-      each language in languages
-        option(value=language.id)= language.name
-    button(type="submit") Create new Post
-  
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet' href='/stylesheets/post-form.css')
+    link(rel='stylesheet' href='/stylesheets/footer.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
+    title= title
+  body
+
+    .post-form-container
+        form(method="post" action="/posts/new")
+          input(type="hidden" name="_csrf" value=token)
+          .form-item
+              label(for="title") Title
+              input(id="title" type="text", name="title" value=title)
+          .form-item    
+              label(for="description") Description
+              textarea(id="description" name="description" cols="30" rows="10" required value=description)
+          .form-item    
+              label(for="link") Link
+              input(id="link" type="text", name="link" required value=link)
+          .form-item    
+              label(for="language") Language
+              select(name="languageId") 
+                each language in languages
+                  option(value=language.id)= language.name
+          .form-item        
+              button.button(type="submit") Create new Post
+            
+    .footer
+              include about-us.pug  
