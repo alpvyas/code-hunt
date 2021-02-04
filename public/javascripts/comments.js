@@ -20,9 +20,6 @@ const makeComments = async (videoId, comments, userId) => {
           `/api/posts/${vidId}/comments/${event.target.id}/delete`,
           {
             method: "DELETE",
-            // headers: {
-            //   "Content-Type": "application/json",
-            // },
           }
         );
         if (result.statusText === "Forbidden") {
