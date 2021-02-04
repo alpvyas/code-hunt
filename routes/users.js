@@ -124,7 +124,7 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
-    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
+    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]], include: 'Language' });
     res.render("home", { title: "Home", links, languages});
   })
 );
