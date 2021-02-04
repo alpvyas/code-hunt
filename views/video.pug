@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel='stylesheet' href='/stylesheets/video.css')
-    script(src="/javascripts/comments.js" defer)
-    title Document
-  body
-    .videoTitle
-      h1(class="videoId" id=`${video.id}`) #{video.title}
-      .languageImg
-        if video.languageId === 6
-          img(src='/images/c++.png' class='logo')
-    .descriptionBox
-        p(class="description") #{video.description}
-    .addComment
-      form.comment-form
-        textarea(name="body" id="commentBody" required)
-        button(type="submit") Add Comment
-    .comments
+extends navbar
+block content
+    link(rel="stylesheet" href="/stylesheets/video.css")
+    body
+      .videoTitle
+        h1(class="videoId" id=`${video.id}`) #{video.title}
+        .languageImg
+          if video.languageId === 9
+            img(src='/images/c++.png' class='logo')
+      .descriptionBox
+          p(class="description") #{video.description}
+      .videoLinkContainer
+        a(class="videoLink" id=`${video.link}`)
+          button(class="linkBtn") Go to Video!
+      .addComment
+        form.comment-form
+          textarea(name="body" id="commentBody" rows=2 cols=25 required)
+          button(type="submit" id='commentBtn') Add Comment
+      .comments
+      script(src="/javascripts/comments.js" defer)
             //- form(method="post" action=`/posts/${video.id}/delete`)
             //- button(type="submit" class="videoDeleteBtn") Delete
