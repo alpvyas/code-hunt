@@ -4,35 +4,38 @@ html
       block head
         title= title
         link(rel='stylesheet' href='/stylesheets/login.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
         script(src="/javascripts/login.js" defer)
   body
-    include utils.pug
-    .split.right
+      include utils.pug
+      .split.right
+            //- .error-display
+            //-   +validationErrorSummary(errors)
             .form.center
-                ul.login-tab-group
-                  li.register-tab.active
-                    a(href='#register') Register
-                  li.login-tab  
+                .login-tab-group
+                  .register-tab.active
+                    a.active(href='#register') Register
+                  .login-tab  
                     a(href='#login') Login
-                .error-display
-                  +validationErrorSummary(errors)
                 if login
                   #login
                     h1 Welcome Back!
-                    form.form(id="login-form" action='/' method='post')
+                    form(id="login-form" action='/' method='post')
                       input(type='hidden' name='_csrf' value= token)
-                      .form-container
+                      .form-container.login
                         .form-item
                           +field('Email Address', 'email', email, 'email')
                         .form-item  
                           +field('Password', 'password', null, 'password')
                       div(class='py-4')
-                        button(type='submit' class='btn btn-primary') Login
+                        button.button.button-block(type='submit' class='btn btn-primary') Login
                   #register.hidden
-                    h1.form Register for Free
+                    h1 Register for Free
                     form(id="register-form" action='/register' method='post')
                       input(type='hidden' name='_csrf' value=token)
-                      .form-container
+                      .form-container.register
                         .form-item
                           +field('First Name', 'first_name', first_name, 'text')
                         .form-item  
@@ -54,23 +57,23 @@ html
                 else 
                   #login.hidden  
                     h1 Welcome Back!
-                    form.form(id="login-form" action='/' method='post')
+                    form(id="login-form" action='/' method='post')
                       input(type='hidden' name='_csrf' value= token)
-                      .form-container
+                      .form-container.login
                         .form-item
                           +field('Email Address', 'email', email, 'email')
                         .form-item  
                           +field('Password', 'password', null, 'password')
                       div(class='py-4')
-                        button(type='submit' class='btn btn-primary') Login
+                        button.button.button-block(type='submit' class='btn btn-primary') Login
                   #register
-                    h1.form Register for Free
+                    h1 Register for Free
                     form(id="register-form" action='/register' method='post')
                       input(type='hidden' name='_csrf' value=token)
-                      .form-container
+                      .form-container.register
                         .form-item
                           +field('First Name', 'first_name', first_name, 'text')
-                        .form-item  
+                        .form-item
                           +field('Last Name', 'last_name', last_name, 'text')
                         .form-item  
                           +field('Username', 'username', username, 'text')
@@ -88,5 +91,9 @@ html
                 div
                   form(action='/demo' method='post')
                     input(type='hidden' name='_csrf' value=token)
-                    button(type='submit' class='btn btn-primary') Demo
-    .split.left                        
+                    button.button.button-block(type='submit' class='btn btn-primary') Demo        
+      .split.left 
+        .error-display
+              +validationErrorSummary(errors)
+        .footer
+              include about-us.pug             
