@@ -1,12 +1,15 @@
 
 body {
+  background: url("./login-page2.png") no-repeat center top transparent;
+  height: 100px;
   background-color: #13232f;
-  background-image: url("./login-page2.png");
+  /* background-image: url("./login-page2.png"); */
   background-size: cover;
 }
 
 .post-form-container {
-  /* background-color: #13232f; */
+  background-position: center;
+  background-color: #13232f;
   /* padding: 100px; */
   border-style: solid;
   border-radius: 10px;
