@@ -10,7 +10,6 @@ const makeComments = async (videoId, comments, userId) => {
     if (e.User.id === userId) {
       let deleteButton = document.createElement("button");
       deleteButton.innerText = "Delete Comment";
-
       deleteButton.setAttribute("class", `deleteBtn ${e.userId}`);
       deleteButton.setAttribute("id", `${e.id}`);
       deleteButton.addEventListener("click", async (event) => {
