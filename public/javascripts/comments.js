@@ -5,13 +5,19 @@ const makeComments = async (videoId, comments, userId) => {
     let commentBox = document.createElement("div");
     commentBox.setAttribute("class", "commentBox");
     let newComment = document.createElement("p");
+    newComment.setAttribute("class", "commentText");
     newComment.innerText = e.body;
     let userName = document.createElement("p");
-    userName.innerText = `by: ${e.User.username}`;
+    userName.setAttribute("class", "authorText");
+    let time = e.createdAt.split("T");
+    let date = time[0];
+    time = time[1].split(":");
+    time = `${time[0]}:${time[1]}`;
+    userName.innerText = `by: ${e.User.username} at ${date} ${time}`;
     newComment.appendChild(userName);
     if (e.User.id === userId) {
       let deleteButton = document.createElement("button");
-      deleteButton.innerText = "Delete Comment";
+      deleteButton.innerText = "Delete";
       deleteButton.setAttribute("class", `deleteBtn ${e.userId}`);
       deleteButton.setAttribute("id", `${e.id}`);
       deleteButton.addEventListener("click", async (event) => {

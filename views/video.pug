@@ -1,22 +1,25 @@
 extends navbar
 block content
-    link(rel="stylesheet" href="/stylesheets/video.css")
-    body
-      .videoTitle
-        h1(class="videoId" id=`${video.id}`) #{video.title}
-        .languageImg
-          if video.languageId === 9
-            img(src='/images/c++.png' class='logo')
-      .descriptionBox
+  link(rel="stylesheet" href="/stylesheets/video.css")
+  body
+    .outerBlock
+      .contentBlock
+        .videoTitle
+          h1(class="videoId" id=`${video.id}`) #{video.title}
+          .languageImg
+            if video.languageId === 9
+              img(src='/images/c++.png' class='logo')
+        label(class='descriptionLabel') About this video:
+        .descriptionBox
           p(class="description") #{video.description}
-      .videoLinkContainer
-        a(class="videoLink" id=`${video.link}`)
-          button(class="linkBtn") Go to Video!
-      .addComment
-        form.comment-form
-          textarea(name="body" id="commentBody" rows=2 cols=25 required)
-          button(type="submit" id='commentBtn') Add Comment
-      .comments
-      script(src="/javascripts/comments.js" defer)
-            //- form(method="post" action=`/posts/${video.id}/delete`)
-            //- button(type="submit" class="videoDeleteBtn") Delete
+        .videoLinkContainer
+          a(class="videoLink" id=`${video.link}`)
+            button(class="linkBtn") Link to Video
+        label(class='commentsLabel') Comments
+        .addComment
+          form.comment-form
+            textarea(name="body" id="commentBody" rows=2 cols=25 required)
+            button(type="submit" id='commentBtn') Add Comment
+        .commentContainer
+          .comments
+          script(src="/javascripts/comments.js" defer)
