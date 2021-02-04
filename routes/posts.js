@@ -106,7 +106,8 @@ router.get(
         where: { languageId: language.id },
       });
     }
-    res.render("home", { results, title: "Search Results" });
+    const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
+    res.render("home", { languages, results, title: "Search Results" });
   })
 );
 

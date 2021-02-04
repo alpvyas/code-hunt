@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    //- add page specific styles by appending to the head
+    link(rel="stylesheet" href="/stylesheets/index.css")
+    //- add page specific js
+    script(src="/javascripts/index.js" type="module" defer)
+    title Code Hunt - #{title}
+  body
+    nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
+      form(method='get' action="/home")
+        button(type="submit") Code Hunt
+      form(method='get' action="/posts/search")
+        input(type="text" name="searchTerm" id="searchTerm")
+        button(type="submit") Search
+      select(name="languageId" placeholder="categories")
+        each language in languages
+          option(value=language.id)= language.name
+      form(method='get' action="/posts/new")
+        button(type="submit") Post
+      form(method='get' action="/profile")
+        button(type="submit") Profile
+      span(class='navbar-text px-4') Welcome, #{user.first_name}!
+      form(class='form-inline pr-4' action='/logout' method='get')
+        button(class='btn btn-sm btn-warning' type='submit') Logout
+
+    block content
