@@ -93,21 +93,21 @@ router.get(
   asyncHandler(async (req, res) => {
     const query1 = req.query.searchTerm;
     console.log("query1", query1);
-    let results = await db.Video.findAll({
+    let links = await db.Video.findAll({
       where: { title: { [Sequelize.Op.iLike]: `%${query1}%` } },
-      order: [["updatedAt", "DESC"]],
+      order: [["updatedAt", "DESC"]], include: 'Language'
     });
     const query2 = req.query.category;
     if (query2) {
       let language = await db.Language.findOne({
         where: { name: { [Sequelize.Op.iLike]: `%${query2}%` } },
       });
-      results = await db.Video.findAll({
-        where: { languageId: language.id },
+      links = await db.Video.findAll({
+        where: { languageId: language.id },  include: 'Language',
       });
     }
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
-    res.render("home", { languages, results, title: "Search Results" });
+    res.render("home", { languages, links, title: "Search Results" });
   })
 );
 

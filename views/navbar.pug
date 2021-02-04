@@ -17,10 +17,10 @@ html
             label(class='search_label')
               img(class='search_icon' src='images/search-icon.png')
               input(class='input_field' type="text" name="searchTerm" id="searchTerm" placeholder='Search Posts')
-              button(type="submit") Search
+              button(class='searchbtn' type="submit") Search
         .navbar_categories
           .dropdown
-            button(class='dropbtn') Categories
+            button(class='dropbtn') Categories &#5121;
             .dropdown_content
               each language in languages
                 a(href='#') #{language.name}
@@ -30,7 +30,7 @@ html
         .profile_logout_div
           .navbar_profile
             form(method='get' action="/profile")
-              button(class='btn' type="submit") Profile
+              button(class='profilebtn btn' type="submit") Profile
           .navbar_logout
             a(href='/logout')
               button(class='btn logout_btn' type='submit') Logout
