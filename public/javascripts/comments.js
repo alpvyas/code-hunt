@@ -1,4 +1,4 @@
-const makeComments = async (videoId, comments) => {
+const makeComments = async (videoId, comments, userId) => {
   const commentSection = document.querySelector(".comments");
   commentSection.innerHTML = "";
   comments.forEach(async (e, i) => {
@@ -7,26 +7,33 @@ const makeComments = async (videoId, comments) => {
     let userName = document.createElement("p");
     userName.innerText = `by: ${e.User.username}`;
     newComment.appendChild(userName);
-    let deleteButton = document.createElement("button");
-    deleteButton.innerText = "delete comment";
-    deleteButton.setAttribute("class", `${e.userId}`);
-    deleteButton.setAttribute("id", `${e.id}`);
-    deleteButton.addEventListener("click", async (event) => {
-      const vidId = document.querySelector(".videoId").id;
-      event.preventDefault();
-      let result = await fetch(
-        `/api/posts/${vidId}/comments/${event.target.id}/delete`,
-        {
-          method: "DELETE",
-          // headers: {
-          //   "Content-Type": "application/json",
-          // },
+    if (e.User.id === userId) {
+      let deleteButton = document.createElement("button");
+      deleteButton.innerText = "Delete Comment";
+      deleteButton.setAttribute("class", `deleteBtn`);
+      deleteButton.setAttribute("class", `${e.userId}`);
+      deleteButton.setAttribute("id", `${e.id}`);
+      deleteButton.addEventListener("click", async (event) => {
+        const vidId = document.querySelector(".videoId").id;
+        event.preventDefault();
+        let result = await fetch(
+          `/api/posts/${vidId}/comments/${event.target.id}/delete`,
+          {
+            method: "DELETE",
+            // headers: {
+            //   "Content-Type": "application/json",
+            // },
+          }
+        );
+        if (result.statusText === "Forbidden") {
+          return window.alert("Cannot Delete other users' comments!");
         }
-      );
-      result = await result.json();
-      await makeComments(vidId, result.comments);
-    });
-    newComment.appendChild(deleteButton);
+        result = await result.json();
+        let id = result.userId;
+        await makeComments(vidId, result.comments, id);
+      });
+      newComment.appendChild(deleteButton);
+    }
     commentSection.appendChild(newComment);
   });
 };
@@ -34,8 +41,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   const videoId = document.querySelector(".videoId").id;
   let comments = await fetch(`/api/posts/${videoId}/comments`);
   comments = await comments.json();
+  let id = comments.userId;
   comments = comments.comments;
-  await makeComments(videoId, comments);
+  await makeComments(videoId, comments, id);
 });
 document
   .querySelector(".comment-form")
@@ -51,12 +59,13 @@ document
       body: JSON.stringify({ body: commentBody.value }),
     });
     result = await result.json();
+    let id = result.userId;
     if (result.errors) {
       result.errors.forEach((e) => {
         window.alert(e);
       });
     } else {
       commentBody.innerHTML = "";
-      await makeComments(videoId, result.comments);
+      await makeComments(videoId, result.comments, id);
     }
   });

@@ -6,15 +6,13 @@ html(lang="en")
     script(src="/javascripts/comments.js" defer)
     title Document
   body
-      h1(class="videoId" id=`${video.id}`) Video # #{video.id}
-      form(method="post" action=`/posts/${video.id}/delete`)
-        button(type="submit" class="videoDeleteBtn") Delete
-      div
+      h1(class="videoId" id=`${video.id}`) #{video.title}
+      .descriptionBox
+        p(class="description") #{video.description}
+      .addComment
         form.comment-form
           textarea(name="body" id="commentBody" required)
           button(type="submit") Add Comment
       .comments
-        each comment in comments
-          div
-            
-            button(class=`deleteButton${comment.id}`)
+            //- form(method="post" action=`/posts/${video.id}/delete`)
+            //- button(type="submit" class="videoDeleteBtn") Delete

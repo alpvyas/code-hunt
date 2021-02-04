@@ -32,12 +32,12 @@ router.get(
     const videoId = parseInt(req.params.pid, 10);
     const comments = await db.Comment.findAll({
       where: { videoId },
-      order: [["id", "ASC"]],
+      order: [["createdAt", "DESC"]],
       limit: 10,
       include: "User",
     });
 
-    res.json({ comments });
+    res.json({ comments, userId: res.locals.user.id });
   })
 );
 router.post(
@@ -61,7 +61,7 @@ router.post(
         limit: 10,
         include: "User",
       });
-      res.json({ comments });
+      res.json({ userId: res.locals.user.id, comments });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       const comments = await db.Comment.findAll({
@@ -71,6 +71,7 @@ router.post(
         include: "User",
       });
       res.json({
+        userId: res.locals.user.id,
         comment,
         comments,
         errors,
@@ -94,7 +95,7 @@ router.delete(
       include: "User",
     });
 
-    res.json({ comments });
+    res.json({ comments, userId: res.locals.user.id });
   })
 );
 
