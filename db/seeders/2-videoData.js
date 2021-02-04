@@ -7,7 +7,7 @@ module.exports = {
         title: "Video 1",
         description: "Sample description",
         link: "www.google.com",
-        languageId: 6,
+        languageId: 9,
         userId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),

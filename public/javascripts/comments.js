@@ -34,6 +34,17 @@ const makeComments = async (videoId, comments, userId) => {
   });
 };
 window.addEventListener("DOMContentLoaded", async () => {
+  const link = document.querySelector(".videoLink");
+  let video = link.id;
+  if (video.startsWith("www")) {
+    video = `https://${video}`;
+    link.setAttribute("href", `${video}`);
+  } else if (video.startsWith("https://")) {
+    link.setAttribute("href", `${video}`);
+  } else {
+    video = `https://www.${video}`;
+    link.setAttribute("href", `${video}`);
+  }
   const videoId = document.querySelector(".videoId").id;
   let comments = await fetch(`/api/posts/${videoId}/comments`);
   comments = await comments.json();
