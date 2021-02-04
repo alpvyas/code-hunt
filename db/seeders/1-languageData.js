@@ -6,12 +6,52 @@ module.exports = {
       "Languages",
       [
         {
-          name: "test language",
+          name: "Python",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "test2",
+          name: "C++",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Javascript",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Java",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "FORTRAN",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "C#",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "C",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Swift",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "HTML",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "CSS",
           createdAt: new Date(),
           updatedAt: new Date(),
         },

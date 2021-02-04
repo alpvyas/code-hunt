@@ -123,8 +123,9 @@ router.get(
   "/home",
   requireAuth,
   asyncHandler(async (req, res) => {
+    const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]] });
-    res.render("home", { title: "Home", links});
+    res.render("home", { title: "Home", links, languages});
   })
 );
 router.get(
@@ -136,11 +137,13 @@ router.get(
     const userLinks = await db.Video.findAll({
       where: { userId },
     });
+    const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const comments = await db.Comment.findAll({ where: { userId } });
     res.render("profile", {
       user,
       userLinks,
       comments,
+      languages,
       title: `${user.first_name} ${user.last_name}`,
     });
   })

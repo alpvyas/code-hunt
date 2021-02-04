@@ -1,12 +1,69 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-  body
-  h1 Hello from Home!
-  form(method='get' action="/posts/search")
-    input(type="text" name="searchTerm" id="searchTerm")
-    button(type="submit") Search
+extends navbar.pug
+
+block content
+  .content_container
+    .content_header
+      span(class='styles_font') Today
+    .post_list_container
+      div
+        ul.post_list
+          li
+            .post_item
+              .post_content
+                a(href='#')
+                  .post_thumbnail
+                .post_info
+                  h3 Post 1
+                    a(href='#')
+                  p(class='post_desc')
+                    a(href='#')
+                  .bottom_bar
+                    .comment_icon
+                      a(href='#')
+                      span(class='12345')
+                    .language_bar
+                      a(class='lang_link' href='#')
+              .vote_btn_container
+                button(class='vote_btn')
+          li
+            .post_item
+              .post_content
+                a(href='#')
+                  .post_thumbnail
+                .post_info
+                  h3 Post 2
+                    a(href='#')
+                  p(class='post_desc')
+                    a(href='#')
+                  .bottom_bar
+                    .comment_icon
+                      a(href='#')
+                      span(class='12345')
+                    .language_bar
+                      a(class='lang_link' href='#')
+              .vote_btn_container
+                button(class='vote_btn')
+
+          li
+            .post_item
+              .post_content
+                a(href='#')
+                  .post_thumbnail
+                .post_info
+                  h3 Post 3
+                    a(href='#')
+                  p(class='post_desc')
+                    a(href='#')
+                  .bottom_bar
+                    .comment_icon
+                      a(href='#')
+                      span(class='12345')
+                    .language_bar
+                      a(class='lang_link' href='#')
+              .vote_btn_container
+                button(class='vote_btn')
+  
+        //- each video in videos
+        //-   .post_container
+
   

@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel="stylesheet" href="/stylesheets/navbar.css")
+    link(rel="stylesheet" href="/stylesheets/homepage.css")
+    title Code Hunt - #{title}
+  body
+    .navbar
+      .navbar_container
+        .navbar_logo
+          a(href='/home')
+            img(class='code_hunt_logo' src='images/producthunt.png')
+        .navbar_search
+          form(method='get' action="/posts/search")
+            label(class='search_label')
+              img(class='search_icon' src='images/search-icon.png')
+              input(class='input_field' type="text" name="searchTerm" id="searchTerm" placeholder='Search Posts')
+              button(type="submit") Search
+        .navbar_categories
+          .dropdown
+            button(class='dropbtn') Categories
+            .dropdown_content
+              each language in languages
+                a(href='#') #{language.name}
+        .navbar_post
+          a(href='/posts/new')
+            button(class='postbtn' type='submit') Post
+        .profile_logout_div
+          .navbar_profile
+            form(method='get' action="/profile")
+              button(class='btn' type="submit") Profile
+          .navbar_logout
+            a(href='/logout')
+              button(class='btn logout_btn' type='submit') Logout
+
+  block content
+
+
+
+
+
+
+
+
+
+
+
+    //- nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
+    //-   form(method='get' action="/home")
+    //-     button(type="submit") Code Hunt
+    //-   form(method='get' action="/posts/search")
+    //-     input(type="text" name="searchTerm" id="searchTerm")
+    //-     button(type="submit") Search
+    //-   select(name="languageId" placeholder="categories")
+    //-     each language in languages
+    //-       option(value=language.id)= language.name
+    //-   form(method='get' action="/posts/new")
+    //-     button(type="submit") Post
+    //-   form(method='get' action="/profile")
+    //-     button(type="submit") Profile
+    //-   span(class='navbar-text px-4') Welcome, #{user.first_name}!
+    //-   form(class='form-inline pr-4' action='/logout' method='get')
+    //-     button(class='btn btn-sm btn-warning' type='submit') Logout
+
+    //- block content
