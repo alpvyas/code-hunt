@@ -2,6 +2,8 @@ const makeComments = async (videoId, comments, userId) => {
   const commentSection = document.querySelector(".comments");
   commentSection.innerHTML = "";
   comments.forEach(async (e, i) => {
+    let commentBox = document.createElement("div");
+    commentBox.setAttribute("class", "commentBox");
     let newComment = document.createElement("p");
     newComment.innerText = e.body;
     let userName = document.createElement("p");
@@ -30,7 +32,8 @@ const makeComments = async (videoId, comments, userId) => {
       });
       newComment.appendChild(deleteButton);
     }
-    commentSection.appendChild(newComment);
+    commentBox.appendChild(newComment);
+    commentSection.appendChild(commentBox);
   });
 };
 window.addEventListener("DOMContentLoaded", async () => {

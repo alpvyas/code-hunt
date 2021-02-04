@@ -9,3 +9,33 @@
   height: 50px;
   width: 50px;
 }
+textarea {
+  resize: none;
+}
+.commentBox {
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 230px;
+}
+.addComment {
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 230px;
+}
+.videoTitle {
+  display: flex;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 350px;
+}
+
+.descriptionBox {
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 250px;
+}
+.videoLinkContainer {
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 230px;
+}
