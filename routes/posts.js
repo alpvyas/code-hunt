@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser, restoreUser, requireAuth } = require("../auth");
@@ -68,10 +68,13 @@ router.get(
   "/:pid(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const video = await db.Video.findByPk(req.params.pid);
-    res.render("video", { video, title: `${video.title}` });
+    const videoId = req.params.pid;
+    const video = await db.Video.findByPk(videoId);
+    const comments = await db.Comment.findAll({ where: { videoId } });
+    res.render("video", { video, comments, title: `${video.title}` });
   })
 );
+//add delete comments for this
 router.post(
   "/:pid/delete",
   requireAuth,
@@ -103,7 +106,8 @@ router.get(
         where: { languageId: language.id },
       });
     }
-    res.render("home", { results, title: "Search Results" });
+    const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
+    res.render("home", { languages, results, title: "Search Results" });
   })
 );
 
