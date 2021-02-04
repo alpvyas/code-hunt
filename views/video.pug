@@ -3,15 +3,21 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    script(src="./javascripts/comment.js" type="module" defer)
+    link(rel='stylesheet' href='/stylesheets/video.css')
+    script(src="/javascripts/comments.js" defer)
     title Document
   body
-      h1 Hello from Videos!
-      form(method="post" action=`/posts/${video.id}/delete`)
-        button(type="submit" class="videoDeleteBtn") Delete
-      div
-        ul
-          each comment in comments
-            li=comment.body
-            form(method="post" action=`/posts/${video.id}/comments/${comment.id}/delete` class="comment-delete-form")
-              button(type="submit" class= `${comment.id}` id=`${video.id}` value= comment.id) Delete
+    .videoTitle
+      h1(class="videoId" id=`${video.id}`) #{video.title}
+      .languageImg
+        if video.languageId === 6
+          img(src='/images/c++.png' class='logo')
+    .descriptionBox
+        p(class="description") #{video.description}
+    .addComment
+      form.comment-form
+        textarea(name="body" id="commentBody" required)
+        button(type="submit") Add Comment
+    .comments
+            //- form(method="post" action=`/posts/${video.id}/delete`)
+            //- button(type="submit" class="videoDeleteBtn") Delete
