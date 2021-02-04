@@ -8,7 +8,7 @@ module.exports = {
         description: "Sample description",
         link: "www.google.com",
         languageId: 9,
-        userId: 1,
+        userId: 7,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
