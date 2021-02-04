@@ -1,0 +1,102 @@
+/* BEGIN FOOTER */
+.footer-bar {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    box-shadow: 0px -1px 2px 1px #8b8c8f;
+    display: grid;
+    justify-content: space-evenly;
+    position: absolute;
+    grid-template-areas: 'person1 person2 person3 project';
+    background-color: #13232f;
+    margin: 0;
+    padding-bottom: 20px;
+    height: 4em;
+    bottom: 0px;
+    width: 100%;
+    color: whitesmoke;
+}
+
+.person1 {
+    display: grid;
+    grid-area: person1;
+    justify-content: space-evenly;
+    grid-template-areas: "name link git";
+}
+
+.person2 {
+    display: grid;
+    grid-area: person2;
+    justify-content: space-evenly;
+    grid-template-areas: "name link git";
+}
+.project {
+    display: grid;
+    grid-area: project;
+    grid-template-areas: "Title"
+                        "readMe"
+                        "wiki";
+}
+.person3 {
+    display: grid;
+    grid-area: person3;
+    justify-content: space-evenly;
+    grid-template-areas: "name link git";
+}
+
+
+.linkedIn{
+    color: whitesmoke;
+    font-size: 30px;
+    background-color: #13232f;
+    grid-area: link;
+    /* padding-top: 6px; */
+    margin: auto;
+    margin-left: auto;
+    margin-left: 5px;
+
+}
+.git{
+    color: whitesmoke;
+    font-size: 30px;
+    background-color: #13232f;
+    grid-area: git;
+    margin: auto;
+     /* margin-bottom: 5px; */
+    margin-left: 5px;
+}
+.name{
+    grid-area: name;
+    margin: auto;
+    /* margin-top: auto; */
+}
+.title{
+    background-color:  #13232f;
+    grid-area: Title;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-self: center;
+    margin-top: auto;
+}
+.wiki{
+    background-color:  #13232f;
+    grid-area: readMe;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+.button-footer{
+    color: whitesmoke;
+    border-radius: 6px;
+    background: transparent;
+    border:1px solid whitesmoke;
+    
+}
+.button-footer:hover{
+    background-color:  rgb(7, 193, 193);
+    color: #F5F9FF;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+}
+.wikiButn{
+    align-self: center;
+}

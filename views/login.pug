@@ -4,6 +4,7 @@ html
       block head
         title= title
         link(rel='stylesheet' href='/stylesheets/login.css')
+        link(rel='stylesheet' href='/stylesheets/footer.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
         link(rel="preconnect" href="https://fonts.gstatic.com")
         link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
@@ -11,14 +12,14 @@ html
   body
       include utils.pug
       .split.right
-            //- .error-display
-            //-   +validationErrorSummary(errors)
+            .error-display
+              +validationErrorSummary(errors)
             .form.center
                 .login-tab-group
                   .register-tab.active
-                    a.active(href='#register') Register
+                    a.login.active(href='#register') Register
                   .login-tab  
-                    a(href='#login') Login
+                    a.login(href='#login') Login
                 if login
                   #login
                     h1 Welcome Back!
@@ -45,7 +46,7 @@ html
                         .form-item  
                           label(for="bio") Bio
                             span.req *
-                          textarea(name="bio", cols="30", rows="10", value= bio)
+                          textarea(name="bio", cols="30", rows="5", value= bio)
                         .form-item  
                           +field('Email Address', 'email', email, 'email')
                         .form-item  
@@ -79,7 +80,7 @@ html
                           +field('Username', 'username', username, 'text')
                         .form-item  
                           label(for="bio") Bio
-                          textarea(name="bio", cols="30", rows="10", value= bio)
+                          textarea(name="bio", cols="30", rows="5", value= bio)
                         .form-item  
                           +field('Email Address', 'email', email, 'email')
                         .form-item  
@@ -93,7 +94,7 @@ html
                     input(type='hidden' name='_csrf' value=token)
                     button.button.button-block(type='submit' class='btn btn-primary') Demo        
       .split.left 
-        .error-display
-              +validationErrorSummary(errors)
+        //- .error-display
+        //-       +validationErrorSummary(errors)
         .footer
               include about-us.pug             

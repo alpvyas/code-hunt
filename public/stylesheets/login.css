@@ -3,7 +3,7 @@
 .register-tab.active,
 .login-tab.active > a,
 .register-tab.active > a {
-  background-color:  rgb(7, 193, 193);
+  background-color:   rgb(7, 193, 193);
 }
 
 .hidden {
@@ -36,6 +36,7 @@
 
 /* Control the right side */
 .right {
+  margin-top: 0;
   width: 50%;
   right: 0;
   /* background-color:#c1bdba; */
@@ -45,7 +46,7 @@
 /* If you want the content centered horizontally and vertically */
 .center{
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -58,6 +59,8 @@
   width: 300px;
   border-style: solid;
   color: #c1bdba;
+  border-radius: 10px;
+  
 }
 
 .login-tab-group {
@@ -68,21 +71,23 @@
 }
 
 .error-display {
-  align-content: center;
-  margin-top: auto;
+  /* align-content: center; */
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   max-width: 400px;
   border: 1px solid red;
-  background-color: #13232f;
+  background-color: whitesmoke;
   color: red;
   border-radius: 5px;
   width: 100%;
+  
 }
 
 input, textarea {
   border: 1px solid #a0b3b0;
-  color: rgb(5, 142, 142);
+  color: black;
+
 }
 
 .form-item {
@@ -105,7 +110,7 @@ input, textarea {
 }
 
 .register-tab, .login-tab, a {
-  background-color: rgb(5, 142, 142);
+  background-color: #13232f;
   width: 200px;
   font-size: 30px;
   cursor: pointer;
@@ -115,10 +120,10 @@ input, textarea {
 
 .register-tab:hover,
 .register-tab:focus,
-li:hover,
-li:focus,
-a:hover,
-a:focus,
+.login-tab-group > a:hover,
+.login-tab-group > a:focus,
+a.login:hover,
+a.login:focus,
 .login-tab:hover,
 .login-tab:focus {
   background-color:  rgb(7, 193, 193);
@@ -126,7 +131,7 @@ a:focus,
 }
 
 .button {
-  background-color: rgb(5, 142, 142);
+  background-color:  #13232f;
   display: block;
   justify-content: space-between ;
   width:100%;
@@ -144,19 +149,13 @@ a:focus,
 }
 
 .footer {
-  /* border-style: solid; */
   display: grid;
-  /* grid-template-columns: repeat(10, 10%); */
   position: fixed;
   left: 5 0%;
   bottom: 0;
   width: 100%;
-  background-color: rgb(5, 142, 142);
+  background-color:  #13232f;
   color: whitesmoke;
   text-align: center;
 }
 
-nav {
-  display: flex;
-  justify-content: space-evenly;
-}
