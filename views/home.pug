@@ -3,31 +3,47 @@ extends navbar.pug
 block content
   .content_container
     .content_header
+      span(class='styles_font') What's New
+    .new_post_container
+      div
+        ul.new_post_list
+          li
+            .new_post_item
+              .new_post_content
+                .post_thumbnail
+                  img(class='thumbnail' src='/images/python.jpg')
+                .post_info
+                  h3 #{newestLink.title}
+                  p(class='post_desc') #{newestLink.description}
+                  .bottom_bar
+                    .comment_icon
+                      span(class='12345')
+                    .language_bar
+                      a(class='lang_link') #{newestLink.Language.name}
+              .vote_btn_container
+                button(class='vote_btn')
+
+    .content_header
       span(class='styles_font') Today
     .post_list_container
       div
         ul.post_list
-
           each link in links
-            li
-              .post_item
-                .post_content
-                  a(href='/posts/#{link.id}/')
-                  .post_thumbnail
-                    img(class='thumbnail' src='images/python.jpg')
-                    a(href=`posts/${link.id}/`)
-                  .post_info
-                    h3 #{link.title}
-                      a(href=`/posts/${link.id}/`)
-                    p(class='post_desc') #{link.description}
-                      a(href=`/posts/${link.id}/`)
-                    .bottom_bar
-                      .comment_icon
-                        a(href=`/posts/${link.id}/`)
-                        span(class='12345')
-                      .language_bar
-                        a(class='lang_link' href=`/posts/${link.id}/`) #{link.Language.name}
-                .vote_btn_container
-                  button(class='vote_btn')
+            a(href=`/posts/${link.id}/`)
+              li
+                .post_item
+                  .post_content
+                    .post_thumbnail
+                      img(class='thumbnail' src='/images/python.jpg')
+                    .post_info
+                      h3 #{link.title}
+                      p(class='post_desc') #{link.description}
+                      .bottom_bar
+                        .comment_icon
+                          span(class='12345')
+                        .language_bar
+                          a(class='lang_link') #{link.Language.name}
+                  .vote_btn_container
+                    button(class='vote_btn')
 
   

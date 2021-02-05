@@ -78,6 +78,7 @@ router.get(
       comments,
       title: `${video.title}`,
     });
+
   })
 );
 //add delete comments for this
@@ -109,11 +110,12 @@ router.get(
         where: { name: { [Sequelize.Op.iLike]: `%${query2}%` } },
       });
       links = await db.Video.findAll({
-        where: { languageId: language.id },  include: 'Language',
+        where: { languageId: language.id },
       });
     }
+    const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
-    res.render("home", { languages, links, title: "Search Results" });
+    res.render("home", { newestLink, languages, links, title: "Search Results" });
   })
 );
 

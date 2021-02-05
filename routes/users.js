@@ -125,7 +125,8 @@ router.get(
   asyncHandler(async (req, res) => {
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]], include: 'Language' });
-    res.render("home", { title: "Home", links, languages});
+    const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
+    res.render("home", { title: "Home", links, languages, newestLink});
   })
 );
 router.get(
@@ -137,6 +138,7 @@ router.get(
     const userLinks = await db.Video.findAll({
       where: { userId },
     });
+    const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const comments = await db.Comment.findAll({ where: { userId } });
     res.render("profile", {
@@ -144,6 +146,7 @@ router.get(
       userLinks,
       comments,
       languages,
+      newestLink,
       title: `${user.first_name} ${user.last_name}`,
     });
   })

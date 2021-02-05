@@ -1,6 +1,7 @@
 .code_hunt_logo {
-  width: 100px;
-  height: 100px;
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
 }
 
 .search_icon {
