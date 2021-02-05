@@ -11,19 +11,20 @@ html
       .navbar_container
         .navbar_logo
           a(href='/home')
-            img(class='code_hunt_logo' src='images/producthunt.png')
+            img(class='code_hunt_logo' src='/images/logo.png')
         .navbar_search
           form(method='get' action="/posts/search")
             label(class='search_label')
-              img(class='search_icon' src='images/search-icon.png')
+              img(class='search_icon' src='/images/search-icon.png')
               input(class='input_field' type="text" name="searchTerm" id="searchTerm" placeholder='Search Posts')
               button(class='searchbtn' type="submit") Search
         .navbar_categories
-          .dropdown
-            button(class='dropbtn') Categories &#5121;
-            .dropdown_content
-              each language in languages
-                a(href='#') #{language.name}
+          form(method='get' action="/posts/search")
+            .dropdown
+              button(class='dropbtn') Categories &#5121;
+              .dropdown_content
+                each language in languages
+                  a(href=`posts/search?category=${language.name}`) #{language.name}
         .navbar_post
           a(href='/posts/new')
             button(class='postbtn' type='submit') Post

@@ -29,7 +29,8 @@ body {
   margin-left: 30px;
 }
 
-.post_list_container {
+.post_list_container,
+.new_post_container {
   position: relative;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
@@ -39,9 +40,15 @@ body {
   /* box-shadow: 10px 5px 5px grey; */
 }
 
+ul {
+  list-style-type: none;
+}
+
 li {
   display: list-item;
   text-align: -webkit-match-parent;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 li:hover,
@@ -60,10 +67,24 @@ li:hover,
   cursor: pointer;
 }
 
+.new_post_item {
+  border: none;
+}
+
 .post_content {
   display: flex;
   padding: 20px 104px 20px 20px;
   align-items: center;
+  border: none;
+}
+.new_post_content {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+.new_post_content:hover{
+  background-color: #f3f3f3;
 }
 
 a {
