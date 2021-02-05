@@ -72,7 +72,13 @@ router.get(
     const video = await db.Video.findByPk(videoId);
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const comments = await db.Comment.findAll({ where: { videoId } });
-    res.render("video", { video, languages, comments, title: `${video.title}` });
+    res.render("video", {
+      languages,
+      video,
+      comments,
+      title: `${video.title}`,
+    });
+
   })
 );
 //add delete comments for this

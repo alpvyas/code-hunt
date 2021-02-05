@@ -4,85 +4,97 @@ html
       block head
         title= title
         link(rel='stylesheet' href='/stylesheets/login.css')
+        link(rel='stylesheet' href='/stylesheets/footer.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
         script(src="/javascripts/login.js" defer)
   body
-    include utils.pug
-    ul.login-tab-group
-      li.register-tab.active
-        a(href='#register') Register
-      li.login-tab  
-        a(href='#login') Login
-    .error-display
-      +validationErrorSummary(errors)
-    if login
-      #login
-        h1 Welcome Back!
-        form.form(id="login-form" action='/' method='post')
-          input(type='hidden' name='_csrf' value= token)
-          .form-container
-            .form-item
-              +field('Email Address', 'email', email, 'email')
-            .form-item  
-              +field('Password', 'password', null, 'password')
-          div(class='py-4')
-            button(type='submit' class='btn btn-primary') Login
-      #register.hidden
-        h1.form Register for Free
-        form(id="register-form" action='/register' method='post')
-          input(type='hidden' name='_csrf' value=token)
-          .form-container
-            .form-item
-              +field('First Name', 'first_name', first_name, 'text')
-            .form-item  
-              +field('Last Name', 'last_name', last_name, 'text')
-            .form-item  
-              +field('Username', 'username', username, 'text')
-            .form-item  
-              label(for="bio") Bio
-              textarea(name="bio", cols="30", rows="10", value= bio)
-            .form-item  
-              +field('Email Address', 'email', email, 'email')
-            .form-item  
-              +field('Password', 'password', password, 'password')
-            .form-item  
-              +field('Confirm Password', 'confirmPassword', '', 'password')
-          div(class='py-4')
-            button(type='submit' class='btn btn-primary') Register      
-    else 
-      #login.hidden  
-        h1 Welcome Back!
-        form.form(id="login-form" action='/' method='post')
-          input(type='hidden' name='_csrf' value= token)
-          .form-container
-            .form-item
-              +field('Email Address', 'email', email, 'email')
-            .form-item  
-              +field('Password', 'password', null, 'password')
-          div(class='py-4')
-            button(type='submit' class='btn btn-primary') Login
-      #register
-        h1.form Register for Free
-        form(id="register-form" action='/register' method='post')
-          input(type='hidden' name='_csrf' value=token)
-          .form-container
-            .form-item
-              +field('First Name', 'first_name', first_name, 'text')
-            .form-item  
-              +field('Last Name', 'last_name', last_name, 'text')
-            .form-item  
-              +field('Username', 'username', username, 'text')
-            .form-item  
-              label(for="bio") Bio
-              textarea(name="bio", cols="30", rows="10", value= bio)
-            .form-item  
-              +field('Email Address', 'email', email, 'email')
-            .form-item  
-              +field('Password', 'password', password, 'password')
-            .form-item  
-              +field('Confirm Password', 'confirmPassword', '', 'password')
-          div(class='py-4')
-            button(type='submit' class='btn btn-primary') Register
-    div
-      form(action='/demo' method='post')
-        input(type='hidden' name='_csrf' value=token)
-        button(type='submit' class='btn btn-primary') Demo        
+      include utils.pug
+      .split.right
+            .error-display
+              +validationErrorSummary(errors)
+            .form.center
+                .login-tab-group
+                  .register-tab.active
+                    a.login.active(href='#register') Register
+                  .login-tab  
+                    a.login(href='#login') Login
+                if login
+                  #login
+                    h1 Welcome Back!
+                    form(id="login-form" action='/' method='post')
+                      input(type='hidden' name='_csrf' value= token)
+                      .form-container.login
+                        .form-item
+                          +field('Email Address', 'email', email, 'email')
+                        .form-item  
+                          +field('Password', 'password', null, 'password')
+                      div(class='py-4')
+                        button.button.button-block(type='submit' class='btn btn-primary') Login
+                  #register.hidden
+                    h1 Register for Free
+                    form(id="register-form" action='/register' method='post')
+                      input(type='hidden' name='_csrf' value=token)
+                      .form-container.register
+                        .form-item
+                          +field('First Name', 'first_name', first_name, 'text')
+                        .form-item  
+                          +field('Last Name', 'last_name', last_name, 'text')
+                        .form-item  
+                          +field('Username', 'username', username, 'text')
+                        .form-item  
+                          label(for="bio") Bio
+                            span.req *
+                          textarea(name="bio", cols="30", rows="5", value= bio)
+                        .form-item  
+                          +field('Email Address', 'email', email, 'email')
+                        .form-item  
+                          +field('Password', 'password', password, 'password')
+                        .form-item  
+                          +field('Confirm Password', 'confirmPassword', '', 'password')
+                      div(class='py-4')
+                        button.button.button-block(type='submit') Register      
+                else 
+                  #login.hidden  
+                    h1 Welcome Back!
+                    form(id="login-form" action='/' method='post')
+                      input(type='hidden' name='_csrf' value= token)
+                      .form-container.login
+                        .form-item
+                          +field('Email Address', 'email', email, 'email')
+                        .form-item  
+                          +field('Password', 'password', null, 'password')
+                      div(class='py-4')
+                        button.button.button-block(type='submit' class='btn btn-primary') Login
+                  #register
+                    h1 Register for Free
+                    form(id="register-form" action='/register' method='post')
+                      input(type='hidden' name='_csrf' value=token)
+                      .form-container.register
+                        .form-item
+                          +field('First Name', 'first_name', first_name, 'text')
+                        .form-item
+                          +field('Last Name', 'last_name', last_name, 'text')
+                        .form-item  
+                          +field('Username', 'username', username, 'text')
+                        .form-item  
+                          label(for="bio") Bio
+                          textarea(name="bio", cols="30", rows="5", value= bio)
+                        .form-item  
+                          +field('Email Address', 'email', email, 'email')
+                        .form-item  
+                          +field('Password', 'password', password, 'password')
+                        .form-item  
+                          +field('Confirm Password', 'confirmPassword', '', 'password')
+                      div(class='py-4')
+                        button.button.button-block(type='submit') Register
+                div
+                  form(action='/demo' method='post')
+                    input(type='hidden' name='_csrf' value=token)
+                    button.button.button-block(type='submit' class='btn btn-primary') Demo        
+      .split.left 
+        //- .error-display
+        //-       +validationErrorSummary(errors)
+        .footer
+              include about-us.pug             

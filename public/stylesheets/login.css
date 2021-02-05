@@ -1,31 +1,161 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
-body, header, nav {
-  font-size: 1rem;
-  color: inherit;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  font-weight: normal;
-}
-
-h1 {
-  font-size: 2rem;
+.login-tab.active, 
+.register-tab.active,
+.login-tab.active > a,
+.register-tab.active > a {
+  background-color:   rgb(7, 193, 193);
 }
 
 .hidden {
   display: none;
 }
+.error-display.hidden {
+  display: none;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color:gray;
+  /* Center image on left side */
+  background-image: url("./login-page.png");
+  background-position: center;
+  background-size: cover;
+}
+
+/* Control the right side */
+.right {
+  margin-top: 0;
+  width: 50%;
+  right: 0;
+  /* background-color:#c1bdba; */
+  background-color: #13232f;
+}
+
+/* If you want the content centered horizontally and vertically */
+.center{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.form {
+  /* background-color: #c1bdba; */
+  background-color: #13232f;
+  width: 300px;
+  border-style: solid;
+  color: #c1bdba;
+  border-radius: 10px;
+  
+}
+
+.login-tab-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.error-display {
+  /* align-content: center; */
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  border: 1px solid red;
+  background-color: whitesmoke;
+  color: red;
+  border-radius: 5px;
+  width: 100%;
+  
+}
+
+input, textarea {
+  border: 1px solid #a0b3b0;
+  color: black;
+
+}
+
+.form-item {
+  display: flex;
+  position:relative;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 10px;
+  
+}
+.req {
+  color: rgb(5, 142, 142);
+  font-size: 30px;
+}
+.register-tab, .login-tab{
+  border-style: solid;
+  border-color: gray;
+  border-right-width: thin;
+}
+
+.register-tab, .login-tab, a {
+  background-color: #13232f;
+  width: 200px;
+  font-size: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.register-tab:hover,
+.register-tab:focus,
+.login-tab-group > a:hover,
+.login-tab-group > a:focus,
+a.login:hover,
+a.login:focus,
+.login-tab:hover,
+.login-tab:focus {
+  background-color:  rgb(7, 193, 193);
+  
+}
+
+.button {
+  background-color:  #13232f;
+  display: block;
+  justify-content: space-between ;
+  width:100%;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover, .button:focus {
+	background:  rgb(7, 193, 193);
+}
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+.footer {
+  display: grid;
+  position: fixed;
+  left: 5 0%;
+  bottom: 0;
+  width: 100%;
+  background-color:  #13232f;
+  color: whitesmoke;
+  text-align: center;
+}
+

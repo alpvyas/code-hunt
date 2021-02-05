@@ -1,0 +1,161 @@
+textarea {
+  width: 400px;
+  align-self: center;
+}
+.outerBlock {
+  display: flex;
+  flex-direction: column;
+}
+.contentBlock {
+  background-position: center;
+  background-color: #13232f;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-radius: 10px;
+  border-color: whitesmoke;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.commentContainer {
+  height: 300px;
+  width: 500px;
+  background-color: #13232f;
+  border-style: solid;
+  border-color: whitesmoke;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 10px;
+  border-radius: 10px;
+}
+.comments {
+  background-color: #f3f3f3;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#commentBtn {
+  margin-bottom: 20px;
+  background-color: rgb(5, 142, 142);
+  align-self: center;
+  width: 150px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.linkBtn {
+  background-color: rgb(5, 142, 142);
+  display: block;
+  align-self: center;
+  width: 100%;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.videoId {
+  align-self: center;
+  font-size: 50px;
+  font-family: "Ubuntu", sans-serif;
+  margin: 10px;
+  padding: 10px;
+  color: whitesmoke;
+}
+.authorText {
+  font-size: 10px;
+}
+.logo {
+  height: 50px;
+  width: 50px;
+}
+textarea {
+  resize: none;
+}
+.commentBox {
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 98%;
+  height: 100px;
+  overflow: auto;
+}
+.deleteBtn {
+  height: 20px;
+  background-color: rgb(5, 142, 142);
+  align-self: center;
+  width: 20%;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.commentText {
+  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+.addComment {
+  width: 230px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.videoTitle {
+  height: 100px;
+  justify-content: center;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 300px;
+}
+.descriptionLabel {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  margin-top: 10px;
+  padding-top: 10px;
+  color: whitesmoke;
+}
+.commentsLabel {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  margin-top: 10px;
+  padding-top: 10px;
+  color: whitesmoke;
+}
+.description {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  text-align: left;
+}
+.descriptionBox {
+  margin: 10px;
+  padding: 10px;
+  align-self: center;
+  background-color: #f3f3f3;
+  border: 3px solid black;
+  box-sizing: border-box;
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: auto;
+}
+.videoLinkContainer {
+  align-self: center;
+  box-sizing: border-box;
+}
