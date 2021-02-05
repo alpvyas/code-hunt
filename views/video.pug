@@ -7,8 +7,26 @@ block content
         .videoTitle
           h1(class="videoId" id=`${video.id}`) #{video.title}
           .languageImg
-            if video.languageId === 9
+            if video.languageId === 1
+              img(src='/images/python.png' class='logo')
+            if video.languageId === 2
               img(src='/images/c++.png' class='logo')
+            if video.languageId === 3
+              img(src='/images/javascript.png' class='logo')
+            if video.languageId === 4
+              img(src='/images/java.png' class='logo')
+            if video.languageId === 5
+              img(src='/images/fortran.png' class='logo')
+            if video.languageId === 6
+              img(src='/images/c#.png' class='logo')
+            if video.languageId === 7
+              img(src='/images/c.png' class='logo')
+            if video.languageId === 8
+              img(src='/images/swift.png' class='logo')
+            if video.languageId === 9
+              img(src='/images/html.png' class='logo')
+            if video.languageId === 10
+              img(src='/images/css.png' class='logo')
         label(class='descriptionLabel') About this video:
         .descriptionBox
           p(class="description") #{video.description}
