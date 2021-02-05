@@ -23,9 +23,8 @@ block content
     each userLink in userLinks
       .mylink-container
         .link
-          a(href=`https://${userLink.link}`)= userLink.link
-        .delete
-          button.delete-logo(type="button") Delete
-
+          a(href=`/posts/${userLink.id}`)= userLink.link
+          .delete
+              button(class=`delete-logo` id=userLink.id) DELETE
   
     
