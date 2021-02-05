@@ -3,8 +3,13 @@ h1 {
   color: whitesmoke;
 }
 
+body {
+  background-image: none;
+}
+
 .profile-container {
   background-color: whitesmoke;
+  border-radius: 20px;
   display: flex;
   height: 300px;
   margin-left: 40px;
@@ -68,7 +73,7 @@ h1 {
 }
 
 .edit-profile-button {
-  background-color:  #13232f;
+  background-color:  teal;
   display: block;
   justify-content: space-between ;
   width:50%;
@@ -77,15 +82,16 @@ h1 {
   color: #fff;
   cursor: pointer;
   margin-top: 10px;
+  border-radius: 20px;
 }
 
-.activity-navbar {
+/* .activity-navbar {
   border-style: solid;
   height: 80px;
   margin-left: 40px;
   margin-right: 40px;
   background-color: whitesmoke;
-}
+} */
 
 .space3 {
   height: 100px;
@@ -105,40 +111,64 @@ h1 {
 
 .links-container {
   border-style: solid;
+  /* display: flex; */
+  border-style: solid;
+  border-color: whitesmoke;
   /* height: 0px; */
+  border-radius: 20px;
   margin-left: 40px;
   margin-right: 50%;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: black;
+  background-color: teal;
 }
 
 .link {
+  border-style: solid;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   background-color: whitesmoke;
-  border-style: solid;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 100%;
+  /* border-style: solid; */
+  border-radius: 20px;
+  height: 70px;
+  margin: 10px;
 }
 
 .mylink-container {
+  border-style: solid;
   display: flex;
   justify-content: space-between;
 }
 
-.delete-logo {
-  color: red;
-}
-
 .delete {
-  padding-right: 20px;
+  border-style: solid;
+  /* padding-right: 20px; */
+  padding-left: 200px;
+
 }
 
 .delete-logo {
-  background-color: black;
+  border-style: solid;
+  background-color: teal;
+  color: whitesmoke;
+  border-radius: 20px;
+  margin-left: 250px;
+  margin-right: 10px;
+
 }
+
+img {
+  align-self: center;
+  border-style: solid;
+  transform: scale(0.5, 0.5);
+  -ms-transform: scale(0.5, 0.5);
+  -webkit-transform: scale(0.5, 0.5);
+  /* margin-left: 60px; */
+  margin-bottom: 30px;
+}
+
+.button-container, .description-container {
+  align-self: center;
+}
+

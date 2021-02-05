@@ -138,6 +138,7 @@ router.get(
     const user = await db.User.findByPk(userId);
     const userLinks = await db.Video.findAll({
       where: { userId },
+      include: "Language",
     });
     const newestLink = await db.Video.findOne({
       order: [["createdAt", "DESC"]],
