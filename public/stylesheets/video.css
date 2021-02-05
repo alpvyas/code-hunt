@@ -1,10 +1,22 @@
 textarea {
   width: 400px;
   align-self: center;
+  padding: 10px;
+  margin: 10px;
 }
 .outerBlock {
   display: flex;
   flex-direction: column;
+}
+.logo {
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  width: 50px;
+}
+.languageImg {
+  padding: 0px;
+  margin: 0px;
 }
 .contentBlock {
   background-position: center;
@@ -24,6 +36,7 @@ textarea {
   height: 300px;
   width: 500px;
   background-color: #13232f;
+  background-color: #f3f3f3;
   border-style: solid;
   border-color: whitesmoke;
   text-align: center;
@@ -40,7 +53,7 @@ textarea {
 }
 
 #commentBtn {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   background-color: rgb(5, 142, 142);
   align-self: center;
   width: 150px;
@@ -66,8 +79,8 @@ textarea {
   align-self: center;
   font-size: 50px;
   font-family: "Ubuntu", sans-serif;
-  margin: 10px;
-  padding: 10px;
+  margin: 0px;
+  padding: 0px;
   color: whitesmoke;
 }
 .authorText {
@@ -115,14 +128,14 @@ textarea {
   align-items: center;
 }
 .videoTitle {
-  height: 100px;
+  height: 130px;
   justify-content: center;
   align-self: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   box-sizing: border-box;
-  width: 300px;
+  width: 75%;
 }
 .descriptionLabel {
   font-family: "Ubuntu", sans-serif;

@@ -33,7 +33,7 @@ router.get(
     const comments = await db.Comment.findAll({
       where: { videoId },
       order: [["createdAt", "DESC"]],
-      limit: 10,
+      limit: 100,
       include: "User",
     });
 
@@ -58,7 +58,7 @@ router.post(
       const comments = await db.Comment.findAll({
         where: { videoId },
         order: [["createdAt", "DESC"]],
-        limit: 10,
+        limit: 100,
         include: "User",
       });
       res.json({ userId: res.locals.user.id, comments });
@@ -67,7 +67,7 @@ router.post(
       const comments = await db.Comment.findAll({
         where: { videoId },
         order: [["createdAt", "DESC"]],
-        limit: 10,
+        limit: 100,
         include: "User",
       });
       res.json({
@@ -91,7 +91,7 @@ router.delete(
     const comments = await db.Comment.findAll({
       where: { videoId },
       order: [["createdAt", "DESC"]],
-      limit: 10,
+      limit: 100,
       include: "User",
     });
 
