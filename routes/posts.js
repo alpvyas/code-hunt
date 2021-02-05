@@ -106,11 +106,12 @@ router.get(
     });
     const query2 = req.query.category;
     if (query2) {
+      console.log('query 2:', query2)
       let language = await db.Language.findOne({
-        where: { name: { [Sequelize.Op.iLike]: `%${query2}%` } },
-      });
+        where: { name: query2 } },
+      );
       links = await db.Video.findAll({
-        where: { languageId: language.id },
+        where: { languageId: language.id }, include: 'Language',
       });
     }
     const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
