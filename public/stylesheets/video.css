@@ -38,6 +38,8 @@ html {
   background-color: #13232f;
   margin-top: 50px;
   padding-top: 10px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
   border-style: solid;
   border-radius: 10px;
   border-color: whitesmoke;
@@ -81,11 +83,11 @@ html {
   background: rgb(7, 193, 193);
 }
 .linkBtn {
-  background-color: rgb(5, 142, 142);
   display: block;
   align-self: center;
   width: 100%;
   font-size: 40px;
+  background-color: rgb(5, 142, 142);
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
@@ -100,9 +102,9 @@ html {
   align-self: center;
   font-size: 50px;
   font-family: "Ubuntu", sans-serif;
+  color: whitesmoke;
   margin: 0px;
   padding: 0px;
-  color: whitesmoke;
 }
 .authorText {
   font-size: 10px;

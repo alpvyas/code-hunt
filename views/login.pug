@@ -15,12 +15,16 @@ html
             .error-display
               +validationErrorSummary(errors)
             .form.center
-                img(class='code_hunt_logo' src='/images/logo.png')
+                div(class="imgShell")
+                  img(class='code_hunt_logo' src='/images/logo.png')
                 .login-tab-group
                   .register-tab.active
                     a.login.active(href='#register') Register
                   .login-tab
                     a.login(href='#login') Login
+                  form(action='/demo' method='post')
+                    input(type='hidden' name='_csrf' value=token)
+                    button.button(type='submit' class='demoBtn') Demo
                 if login
                   #login
                     h1 Welcome Back!
@@ -90,12 +94,9 @@ html
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit') Register
-                div
-                  form(action='/demo' method='post')
-                    input(type='hidden' name='_csrf' value=token)
-                    button.button.button-block(type='submit' class='btn btn-primary') Demo
       .split.left
-
+        img(class='bgImg' src='/images/login-page.png')
+        img(class='introImg' src='/images/background1.png')
         //- .error-display
         //-       +validationErrorSummary(errors)
         .footer
