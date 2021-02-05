@@ -13,7 +13,7 @@ const makeComments = async (videoId, comments, userId) => {
     let date = time[0];
     time = time[1].split(":");
     time = `${time[0]}:${time[1]}`;
-    userName.innerText = `by: ${e.User.username} at ${date} ${time}`;
+    userName.innerText = `by: ${e.User.username} at ${time} ${date}`;
     newComment.appendChild(userName);
     if (e.User.id === userId) {
       let deleteButton = document.createElement("button");

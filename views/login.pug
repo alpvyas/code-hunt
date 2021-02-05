@@ -15,10 +15,11 @@ html
             .error-display
               +validationErrorSummary(errors)
             .form.center
+                img(class='code_hunt_logo' src='/images/logo.png')
                 .login-tab-group
                   .register-tab.active
                     a.login.active(href='#register') Register
-                  .login-tab  
+                  .login-tab
                     a.login(href='#login') Login
                 if login
                   #login
@@ -28,7 +29,7 @@ html
                       .form-container.login
                         .form-item
                           +field('Email Address', 'email', email, 'email')
-                        .form-item  
+                        .form-item
                           +field('Password', 'password', null, 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit' class='btn btn-primary') Login
@@ -39,31 +40,31 @@ html
                       .form-container.register
                         .form-item
                           +field('First Name', 'first_name', first_name, 'text')
-                        .form-item  
+                        .form-item
                           +field('Last Name', 'last_name', last_name, 'text')
-                        .form-item  
+                        .form-item
                           +field('Username', 'username', username, 'text')
-                        .form-item  
+                        .form-item
                           label(for="bio") Bio
                             span.req *
                           textarea(name="bio", cols="30", rows="5", value= bio)
-                        .form-item  
+                        .form-item
                           +field('Email Address', 'email', email, 'email')
-                        .form-item  
+                        .form-item
                           +field('Password', 'password', password, 'password')
-                        .form-item  
+                        .form-item
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
-                        button.button.button-block(type='submit') Register      
-                else 
-                  #login.hidden  
+                        button.button.button-block(type='submit') Register
+                else
+                  #login.hidden
                     h1 Welcome Back!
                     form(id="login-form" action='/' method='post')
                       input(type='hidden' name='_csrf' value= token)
                       .form-container.login
                         .form-item
                           +field('Email Address', 'email', email, 'email')
-                        .form-item  
+                        .form-item
                           +field('Password', 'password', null, 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit' class='btn btn-primary') Login
@@ -76,25 +77,26 @@ html
                           +field('First Name', 'first_name', first_name, 'text')
                         .form-item
                           +field('Last Name', 'last_name', last_name, 'text')
-                        .form-item  
+                        .form-item
                           +field('Username', 'username', username, 'text')
-                        .form-item  
+                        .form-item
                           label(for="bio") Bio
                           textarea(name="bio", cols="30", rows="5", value= bio)
-                        .form-item  
+                        .form-item
                           +field('Email Address', 'email', email, 'email')
-                        .form-item  
+                        .form-item
                           +field('Password', 'password', password, 'password')
-                        .form-item  
+                        .form-item
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit') Register
                 div
                   form(action='/demo' method='post')
                     input(type='hidden' name='_csrf' value=token)
-                    button.button.button-block(type='submit' class='btn btn-primary') Demo        
-      .split.left 
+                    button.button.button-block(type='submit' class='btn btn-primary') Demo
+      .split.left
+
         //- .error-display
         //-       +validationErrorSummary(errors)
         .footer
-              include about-us.pug             
+              include about-us.pug
