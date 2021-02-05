@@ -20,10 +20,29 @@ block content
       strong MY LINKS
   .links-container
     each userLink in userLinks
-      div(class=".mylink-container" id=`mylinks${userLink.id}`)
-        .link
-          a(href=`/posts/${userLink.id}`)= userLink.link
-          .delete
+        div(class=".mylink-container" id=`mylinks${userLink.id}`)
+          .link
+            if userLink.languageId === 1
+              img(src='/images/python.png' class='logo')
+            if userLink.languageId === 9
+              img(src='/images/c++.png' class='logo')
+            if userLink.languageId === 3
+              img(src='/images/javascript.png' class='logo')
+            if userLink.languageId === 4
+              img(src='/images/java.png' class='logo')
+            if userLink.languageId === 5
+              img(src='/images/fortran.png' class='logo')
+            if userLink.languageId === 6
+              img(src='/images/c#.png' class='logo')
+            if userLink.languageId === 7
+              img(src='/images/c.png' class='logo')
+            if userLink.languageId === 8
+              img(src='/images/swift.png' class='logo')
+            if userLink.languageId === 11
+              img(src='/images/html.png' class='logo')
+            if userLink.languageId === 10
+              img(src='/images/css.png' class='logo')
+            .description-container  
+              a(href=`/posts/${userLink.id}`)= userLink.link
+            .button-container    
               button(class=`delete-logo` id=userLink.id) DELETE
-  
-    
