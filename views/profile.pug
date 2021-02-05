@@ -15,13 +15,12 @@ block content
       .user-id= `#${user.id }    @${user.first_name}_${user.last_name}`
       .edit-profile
         button.edit-profile-button(type="button") EDIT MY PROFILE
-  .activity-navbar
   .space3
     .display
       strong MY LINKS
   .links-container
     each userLink in userLinks
-      .mylink-container
+      div(class=".mylink-container" id=`mylinks${userLink.id}`)
         .link
           a(href=`/posts/${userLink.id}`)= userLink.link
           .delete

@@ -3,8 +3,13 @@ h1 {
   color: whitesmoke;
 }
 
+body {
+  background-image: none;
+}
+
 .profile-container {
   background-color: whitesmoke;
+  border-radius: 20px;
   display: flex;
   height: 300px;
   margin-left: 40px;
@@ -79,13 +84,13 @@ h1 {
   margin-top: 10px;
 }
 
-.activity-navbar {
+/* .activity-navbar {
   border-style: solid;
   height: 80px;
   margin-left: 40px;
   margin-right: 40px;
   background-color: whitesmoke;
-}
+} */
 
 .space3 {
   height: 100px;
@@ -106,6 +111,7 @@ h1 {
 .links-container {
   border-style: solid;
   /* height: 0px; */
+  border-radius: 20px;
   margin-left: 40px;
   margin-right: 50%;
   padding-top: 30px;
@@ -118,6 +124,7 @@ h1 {
   justify-content: space-between;
   background-color: whitesmoke;
   border-style: solid;
+  border-radius: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
