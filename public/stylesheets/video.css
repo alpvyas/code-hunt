@@ -4,6 +4,20 @@ textarea {
   padding: 10px;
   margin: 10px;
 }
+html {
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  display: grid;
+  position: fixed;
+  left: 5 0%;
+  bottom: 0;
+  width: 100%;
+  background-color: #13232f;
+  color: whitesmoke;
+  text-align: center;
+}
 .outerBlock {
   display: flex;
   flex-direction: column;
@@ -19,12 +33,11 @@ textarea {
   margin: 0px;
 }
 .contentBlock {
+  align-self: center;
   background-position: center;
   background-color: #13232f;
-  position: absolute;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 50px;
+  padding-top: 10px;
   border-style: solid;
   border-radius: 10px;
   border-color: whitesmoke;
@@ -63,6 +76,10 @@ textarea {
   cursor: pointer;
   box-sizing: border-box;
 }
+#commentBtn:hover,
+#commentBtn:focus {
+  background: rgb(7, 193, 193);
+}
 .linkBtn {
   background-color: rgb(5, 142, 142);
   display: block;
@@ -73,6 +90,10 @@ textarea {
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
+}
+.linkBtn:hover,
+.linkBtn:focus {
+  background: rgb(7, 193, 193);
 }
 
 .videoId {
@@ -112,6 +133,10 @@ textarea {
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
+}
+.deleteBtn:hover,
+.deleteBtn:focus {
+  background: rgb(7, 193, 193);
 }
 .commentText {
   font-size: 12px;
