@@ -12,23 +12,20 @@ const {
 } = require("./utils");
 
 /* GET users listing. */
-router.get(
-  "/",
-  csrfProtection,
-  (req, res) => {
-    res.render("login", {
-      title: "Login",
-      token: req.csrfToken(),
-    });
-  }
-);
+router.get("/", csrfProtection, async (req, res) => {
+  const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
+  res.render("login", {
+    title: "Login",
+    token: req.csrfToken(),
+    languages,
+  });
+});
 //log user in
 router.post(
   "/",
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res, next) => {
-    let errors = [];
     const validatorErrors = validationResult(req);
     const { email, password } = req.body;
     const user = await db.User.findOne({ where: { email: email } });
@@ -40,13 +37,12 @@ router.post(
         );
         if (passwordMatch) {
           loginUser(req, res, user);
-          restoreUser(req, res, next);
           return req.session.save(() => {
-            return res.render("home");
+            return res.redirect("/home");
           });
-        } 
-      } 
-      errors.push("Login failed - Invalid Credentials")
+        }
+      }
+      errors.push("Login failed - Invalid Credentials");
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
@@ -72,7 +68,6 @@ router.post(
 );
 
 router.get("/register", csrfProtection, (req, res) => {
-  
   const user = db.User.build();
 
   res.render("login", { user, token: req.csrfToken() });
@@ -108,7 +103,7 @@ router.post(
         title: "Register",
         token: req.csrfToken(),
         user,
-        registerStatus: false
+        registerStatus: false,
       });
     }
   })
@@ -116,17 +111,23 @@ router.post(
 router.get("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
   return req.session.save(() => {
-        return res.redirect("/");
-      });
+    return res.redirect("/");
+  });
 });
 router.get(
   "/home",
   requireAuth,
   asyncHandler(async (req, res) => {
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
-    const links = await db.Video.findAll({ order: [["updatedAt", "DESC"]], include: 'Language' });
-    const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
-    res.render("home", { title: "Home", links, languages, newestLink});
+    const links = await db.Video.findAll({
+      order: [["updatedAt", "DESC"]],
+      include: "Language",
+    });
+    const newestLink = await db.Video.findOne({
+      order: [["createdAt", "DESC"]],
+      include: "Language",
+    });
+    res.render("home", { title: "Home", links, languages, newestLink });
   })
 );
 router.get(
@@ -138,7 +139,10 @@ router.get(
     const userLinks = await db.Video.findAll({
       where: { userId },
     });
-    const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
+    const newestLink = await db.Video.findOne({
+      order: [["createdAt", "DESC"]],
+      include: "Language",
+    });
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     const comments = await db.Comment.findAll({ where: { userId } });
     res.render("profile", {
