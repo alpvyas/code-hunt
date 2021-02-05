@@ -2,13 +2,19 @@
   font-family: "Ubuntu", sans-serif;
   color: whitesmoke;
 }
+html {
+  background-color: #13232f;
+}
 .login-tab.active,
 .register-tab.active,
 .login-tab.active > a,
 .register-tab.active > a {
   background-color: rgb(7, 193, 193);
 }
-
+.formContainer {
+  display: flex;
+  flex-direction: row;
+}
 .hidden {
   display: none;
 }
@@ -19,20 +25,26 @@
 /* Split the screen in half */
 .split {
   height: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
   background-color: #13232f;
 }
 
 /* Control the left side */
 .left {
-  width: 40%;
+  /*814.867*/
+  border-style: solid;
+  color: #c1bdba;
+  border-radius: 10px;
+  max-width: 890px;
+  min-width: 430px;
+  padding: 10px;
+  box-sizing: border-box;
+  align-self: center;
+  margin-bottom: 50px;
+  height: 100%;
   left: 0;
   background-color: black;
-  /* Center image on left side */
   display: flex;
   flex-direction: column;
 }
@@ -46,19 +58,19 @@
 }
 .imgShell {
   align-self: center;
-  height: 300px;
+  height: 225px;
   width: 300px;
 }
 .code_hunt_logo {
-  height: 300px;
-  width: 300px;
+  height: auto;
+  width: auto;
   background-color: whitesmoke;
 }
 /* Control the right side */
 .right {
+  height: 100%;
   padding: 20px;
   margin-top: 0;
-  width: 60%;
   right: 0;
   display: flex;
   flex-direction: column;
@@ -69,10 +81,10 @@
 /* If you want the content centered horizontally and vertically */
 .center {
   padding: 10px;
-  text-align: center;
+  box-sizing: border-box;
   align-self: center;
   margin-bottom: 50px;
-  box-sizing: border-box;
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
@@ -80,7 +92,7 @@
 .form {
   /* background-color: #c1bdba; */
   background-color: #13232f;
-  width: 500px;
+  width: 350px;
   border-style: solid;
   color: #c1bdba;
   border-radius: 10px;
@@ -94,11 +106,14 @@
 
 .error-display {
   /* align-content: center; */
-  margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 300px;
-  width: 100%;
+  background-color: black;
+  margin: 20px;
+  padding: 10px;
+  border-style: solid;
+  color: #c1bdba;
+  border-radius: 10px;
+  max-width: 400px;
+  height: 100%;
 }
 
 input,
@@ -113,7 +128,6 @@ textarea {
   flex-direction: column;
   align-items: center;
   font-family: "Ubuntu", sans-serif;
-  margin-bottom: 10px;
 }
 .req {
   color: rgb(5, 142, 142);
@@ -127,7 +141,6 @@ textarea {
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
-  margin: 10px;
 }
 
 .register-tab,
@@ -162,7 +175,7 @@ a.login:focus,
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
-  width: 100%;
+  width: 150px;
   font-size: 30px;
   color: #fff;
   cursor: pointer;
@@ -173,8 +186,7 @@ a.login:focus,
   background: rgb(7, 193, 193);
 }
 .button-block {
-  display: block;
-  width: 100%;
+  width: 300px;
 }
 
 .footer {

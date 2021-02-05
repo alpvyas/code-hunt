@@ -11,9 +11,9 @@ html
         script(src="/javascripts/login.js" defer)
   body
       include utils.pug
-      .split.right
-            .error-display
-              +validationErrorSummary(errors)
+      .split
+        .right
+          .formContainer
             .form.center
                 div(class="imgShell")
                   img(class='code_hunt_logo' src='/images/logo.png')
@@ -22,9 +22,9 @@ html
                     a.login.active(href='#register') Register
                   .login-tab
                     a.login(href='#login') Login
-                  form(action='/demo' method='post')
-                    input(type='hidden' name='_csrf' value=token)
-                    button.button(type='submit' class='demoBtn') Demo
+                form(action='/demo' method='post')
+                  input(type='hidden' name='_csrf' value=token)
+                  button.button(type='submit' class='demoBtn') Demo
                 if login
                   #login
                     h1 Welcome Back!
@@ -51,7 +51,7 @@ html
                         .form-item
                           label(for="bio") Bio
                             span.req *
-                          textarea(name="bio", cols="30", rows="5", value= bio)
+                          textarea(name="bio", cols="30", rows="5", value= bio required)
                         .form-item
                           +field('Email Address', 'email', email, 'email')
                         .form-item
@@ -94,10 +94,10 @@ html
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit') Register
-      .split.left
-        img(class='bgImg' src='/images/login-page.png')
-        img(class='introImg' src='/images/background1.png')
-        //- .error-display
-        //-       +validationErrorSummary(errors)
+            .error-display
+              +validationErrorSummary(errors)
+        .left
+          img(class='bgImg' src='/images/login-page.png')
+          img(class='introImg' src='/images/background1.png')
         .footer
               include about-us.pug
