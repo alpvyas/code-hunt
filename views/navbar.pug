@@ -30,7 +30,12 @@ html
               button(class='dropbtn') Categories &#5121;
               .dropdown_content
                 each language in languages
-                  a(href=`posts/search?category=${language.name}`) #{language.name}
+                  if language.name === 'C++'
+                    a(href=`/posts/search?category=C%2B%2B`) #{language.name}
+                  else if language.name === 'C#'
+                    a(href=`/posts/search?category=C%23`) #{language.name}
+                  else
+                    a(href=`/posts/search?category=${language.name}`) #{language.name}
         .navbar_post
           a(href='/posts/new')
             button(class='postbtn' type='submit') Post
