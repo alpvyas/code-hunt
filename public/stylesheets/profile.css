@@ -1,0 +1,134 @@
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: whitesmoke;
+}
+
+.profile-container {
+  background-color: whitesmoke;
+  display: flex;
+  height: 300px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.space1 {
+  width: 100px;
+}
+
+.user-logo-container {
+  width: 300px;
+}
+
+.user-logo {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: teal;
+  padding-top: 10px;
+
+}
+
+.logo {
+  height: 80px;
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+  font-size: 140px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:whitesmoke;
+}
+
+.user-info {
+  width: 300px;
+}
+
+.space2 {
+  height: 70px;
+}
+
+.user-name {
+  max-height: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.user-message {
+  height: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+.user-id {
+  height: 30px;
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.edit-profile-button {
+  background-color:  #13232f;
+  display: block;
+  justify-content: space-between ;
+  width:50%;
+  height: 40px;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.activity-navbar {
+  border-style: solid;
+  height: 80px;
+  margin-left: 40px;
+  margin-right: 40px;
+  background-color: whitesmoke;
+}
+
+.space3 {
+  height: 100px;
+}
+
+.display {
+
+  width: 200px;
+  height: 100px;
+  margin-left: 40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  padding-top: 50px;
+  color: whitesmoke;
+  
+}
+
+.links-container {
+  border-style: solid;
+  /* height: 0px; */
+  margin-left: 40px;
+  margin-right: 50%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: black;
+}
+
+.link {
+  background-color: whitesmoke;
+  border-style: solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 80%;
+}
+
+.mylink-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-logo {
+  color: red;
+}
