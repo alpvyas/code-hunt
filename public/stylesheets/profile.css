@@ -114,6 +114,8 @@ h1 {
 }
 
 .link {
+  display: flex;
+  justify-content: space-between;
   background-color: whitesmoke;
   border-style: solid;
   padding-top: 20px;
@@ -121,7 +123,7 @@ h1 {
   padding-left: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  width: 80%;
+  width: 100%;
 }
 
 .mylink-container {
@@ -131,4 +133,12 @@ h1 {
 
 .delete-logo {
   color: red;
+}
+
+.delete {
+  padding-right: 20px;
+}
+
+.delete-logo {
+  background-color: black;
 }

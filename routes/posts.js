@@ -81,15 +81,27 @@ router.get(
   })
 );
 //add delete comments for this
-router.post(
+router.delete(
   "/:pid/delete",
   requireAuth,
   asyncHandler(async (req, res) => {
     const videoId = parseInt(req.params.pid, 10);
+    const comments = await db.Comment.findAll({
+      where: { videoId },
+    });
     const video = await db.Video.findByPk(videoId);
-    checkPermissions(video, res.locals.user);
+    checkPermissions(video, res.locals.user)
+    if (comments) {
+      comments.forEach(async (element) => {
+        await element.destroy();
+      }); 
+    }
     await video.destroy();
-    res.redirect("/home");
+    const links = await db.Video.findAll({ where: { id: videoId },
+      order: [["updatedAt", "DESC"]], 
+      include: 'Language' 
+    });
+    res.json({ links, userId: res.locals.user.id });
   })
 );
 //test, if does not pass, change get to put
