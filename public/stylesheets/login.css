@@ -27,11 +27,15 @@ html {
   height: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background-color: #13232f;
 }
 
 /* Control the left side */
 .left {
+  justify-content: center;
+  align-items: center;
   /*814.867*/
   border-style: solid;
   color: #c1bdba;
@@ -68,6 +72,8 @@ html {
 }
 /* Control the right side */
 .right {
+  justify-content: center;
+  align-items: center;
   height: 100%;
   padding: 20px;
   margin-top: 0;
