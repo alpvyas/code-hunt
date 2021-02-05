@@ -1,18 +1,45 @@
 textarea {
   width: 400px;
   align-self: center;
+  padding: 10px;
+  margin: 10px;
+}
+html {
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  display: grid;
+  position: fixed;
+  left: 5 0%;
+  bottom: 0;
+  width: 100%;
+  background-color: #13232f;
+  color: whitesmoke;
+  text-align: center;
 }
 .outerBlock {
   display: flex;
   flex-direction: column;
 }
+.logo {
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  width: 50px;
+}
+.languageImg {
+  padding: 0px;
+  margin: 0px;
+}
 .contentBlock {
+  align-self: center;
   background-position: center;
   background-color: #13232f;
-  position: absolute;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 50px;
+  padding-top: 10px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
   border-style: solid;
   border-radius: 10px;
   border-color: whitesmoke;
@@ -24,6 +51,7 @@ textarea {
   height: 300px;
   width: 500px;
   background-color: #13232f;
+  background-color: #f3f3f3;
   border-style: solid;
   border-color: whitesmoke;
   text-align: center;
@@ -40,7 +68,7 @@ textarea {
 }
 
 #commentBtn {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   background-color: rgb(5, 142, 142);
   align-self: center;
   width: 150px;
@@ -50,25 +78,33 @@ textarea {
   cursor: pointer;
   box-sizing: border-box;
 }
+#commentBtn:hover,
+#commentBtn:focus {
+  background: rgb(7, 193, 193);
+}
 .linkBtn {
-  background-color: rgb(5, 142, 142);
   display: block;
   align-self: center;
   width: 100%;
   font-size: 40px;
+  background-color: rgb(5, 142, 142);
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
+}
+.linkBtn:hover,
+.linkBtn:focus {
+  background: rgb(7, 193, 193);
 }
 
 .videoId {
   align-self: center;
   font-size: 50px;
   font-family: "Ubuntu", sans-serif;
-  margin: 10px;
-  padding: 10px;
   color: whitesmoke;
+  margin: 0px;
+  padding: 0px;
 }
 .authorText {
   font-size: 10px;
@@ -100,6 +136,10 @@ textarea {
   border-radius: 10px;
   box-sizing: border-box;
 }
+.deleteBtn:hover,
+.deleteBtn:focus {
+  background: rgb(7, 193, 193);
+}
 .commentText {
   font-size: 12px;
   font-family: "Ubuntu", sans-serif;
@@ -115,14 +155,14 @@ textarea {
   align-items: center;
 }
 .videoTitle {
-  height: 100px;
+  height: 130px;
   justify-content: center;
   align-self: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   box-sizing: border-box;
-  width: 300px;
+  width: 75%;
 }
 .descriptionLabel {
   font-family: "Ubuntu", sans-serif;

@@ -1,9 +1,12 @@
-
-.login-tab.active, 
+* {
+  font-family: "Ubuntu", sans-serif;
+  color: whitesmoke;
+}
+.login-tab.active,
 .register-tab.active,
 .login-tab.active > a,
 .register-tab.active > a {
-  background-color:   rgb(7, 193, 193);
+  background-color: rgb(7, 193, 193);
 }
 
 .hidden {
@@ -16,58 +19,77 @@
 /* Split the screen in half */
 .split {
   height: 100%;
-  width: 50%;
   position: fixed;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
+  background-color: #13232f;
 }
 
 /* Control the left side */
 .left {
+  width: 40%;
   left: 0;
-  background-color:gray;
+  background-color: black;
   /* Center image on left side */
-  background-image: url("./login-page.png");
-  background-position: center;
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
-
+.bgImg {
+  width: 100%;
+  height: auto;
+}
+.introImg {
+  width: 100%;
+  height: auto;
+}
+.imgShell {
+  align-self: center;
+  height: 300px;
+  width: 300px;
+}
+.code_hunt_logo {
+  height: 300px;
+  width: 300px;
+  background-color: whitesmoke;
+}
 /* Control the right side */
 .right {
+  padding: 20px;
   margin-top: 0;
-  width: 50%;
+  width: 60%;
   right: 0;
+  display: flex;
+  flex-direction: column;
   /* background-color:#c1bdba; */
   background-color: #13232f;
 }
 
 /* If you want the content centered horizontally and vertically */
-.center{
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.center {
+  padding: 10px;
   text-align: center;
+  align-self: center;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .form {
   /* background-color: #c1bdba; */
   background-color: #13232f;
-  width: 300px;
+  width: 500px;
   border-style: solid;
   color: #c1bdba;
   border-radius: 10px;
-  
 }
 
 .login-tab-group {
+  align-self: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  
 }
 
 .error-display {
@@ -75,43 +97,44 @@
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
-  max-width: 400px;
-  border: 1px solid red;
-  background-color: whitesmoke;
-  color: red;
-  border-radius: 5px;
+  max-width: 300px;
   width: 100%;
-  
 }
 
-input, textarea {
+input,
+textarea {
   border: 1px solid #a0b3b0;
   color: black;
-
 }
 
 .form-item {
   display: flex;
-  position:relative;
+  position: relative;
   flex-direction: column;
   align-items: center;
   font-family: "Ubuntu", sans-serif;
   margin-bottom: 10px;
-  
 }
 .req {
   color: rgb(5, 142, 142);
   font-size: 30px;
 }
-.register-tab, .login-tab{
-  border-style: solid;
-  border-color: gray;
-  border-right-width: thin;
+.register-tab,
+.login-tab,
+.demoBtn {
+  background-color: rgb(5, 142, 142);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 10px;
 }
 
-.register-tab, .login-tab, a {
+.register-tab,
+.login-tab,
+a {
   background-color: #13232f;
-  width: 200px;
+  width: 150px;
   font-size: 30px;
   cursor: pointer;
   text-decoration: none;
@@ -120,28 +143,34 @@ input, textarea {
 
 .register-tab:hover,
 .register-tab:focus,
+.demoBtn:hover,
+.demoBtn:focus,
 .login-tab-group > a:hover,
 .login-tab-group > a:focus,
 a.login:hover,
 a.login:focus,
 .login-tab:hover,
 .login-tab:focus {
-  background-color:  rgb(7, 193, 193);
-  
+  background-color: rgb(7, 193, 193);
 }
 
 .button {
-  background-color:  #13232f;
-  display: block;
-  justify-content: space-between ;
-  width:100%;
+  align-self: center;
+  margin: 10px;
+  background-color: rgb(5, 142, 142);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
   font-size: 30px;
   color: #fff;
   cursor: pointer;
 }
 
-.button:hover, .button:focus {
-	background:  rgb(7, 193, 193);
+.button:hover,
+.button:focus {
+  background: rgb(7, 193, 193);
 }
 .button-block {
   display: block;
@@ -154,8 +183,7 @@ a.login:focus,
   left: 5 0%;
   bottom: 0;
   width: 100%;
-  background-color:  #13232f;
+  background-color: #13232f;
   color: whitesmoke;
   text-align: center;
 }
-
