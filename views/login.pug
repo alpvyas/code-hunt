@@ -51,7 +51,7 @@ html
                         .form-item
                           label(for="bio") Bio
                             span.req *
-                          textarea(name="bio", cols="30", rows="5", value= bio required)
+                          textarea(name="bio", cols="30", rows="5", value= bio)
                         .form-item
                           +field('Email Address', 'email', email, 'email')
                         .form-item
@@ -94,9 +94,10 @@ html
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit') Register
+        .left
+          if(errors)
             .error-display
               +validationErrorSummary(errors)
-        .left
           img(class='bgImg' src='/images/login-page.png')
           img(class='introImg' src='/images/background1.png')
         .footer
