@@ -25,10 +25,8 @@ router.get(
   csrfProtection,
   requireAuth,
   asyncHandler(async (req, res) => {
-    const video = db.Video.build();
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
     res.render("new-post", {
-      video,
       languages,
       token: req.csrfToken(),
     });
@@ -78,7 +76,6 @@ router.get(
       comments,
       title: `${video.title}`,
     });
-
   })
 );
 //add delete comments for this
@@ -91,16 +88,17 @@ router.delete(
       where: { videoId },
     });
     const video = await db.Video.findByPk(videoId);
-    checkPermissions(video, res.locals.user)
+    checkPermissions(video, res.locals.user);
     if (comments) {
       comments.forEach(async (element) => {
         await element.destroy();
-      }); 
+      });
     }
     await video.destroy();
-    const links = await db.Video.findAll({ where: { id: videoId },
-      order: [["updatedAt", "DESC"]], 
-      include: 'Language' 
+    const links = await db.Video.findAll({
+      where: { id: videoId },
+      order: [["updatedAt", "DESC"]],
+      include: "Language",
     });
     res.json({ links, userId: res.locals.user.id });
   })
@@ -114,21 +112,31 @@ router.get(
     console.log("query1", query1);
     let links = await db.Video.findAll({
       where: { title: { [Sequelize.Op.iLike]: `%${query1}%` } },
-      order: [["updatedAt", "DESC"]], include: 'Language'
+      order: [["updatedAt", "DESC"]],
+      include: "Language",
     });
     const query2 = req.query.category;
     if (query2) {
-      console.log('query 2:', query2)
+      console.log("query 2:", query2);
       let language = await db.Language.findOne({
-        where: { name: query2 } },
-      );
+        where: { name: query2 },
+      });
       links = await db.Video.findAll({
-        where: { languageId: language.id }, include: 'Language',
+        where: { languageId: language.id },
+        include: "Language",
       });
     }
-    const newestLink = await db.Video.findOne({ order: [["createdAt", 'DESC']], include: "Language" });
+    const newestLink = await db.Video.findOne({
+      order: [["createdAt", "DESC"]],
+      include: "Language",
+    });
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
-    res.render("home", { newestLink, languages, links, title: "Search Results" });
+    res.render("home", {
+      newestLink,
+      languages,
+      links,
+      title: "Search Results",
+    });
   })
 );
 

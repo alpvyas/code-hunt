@@ -8,17 +8,17 @@ block content
           h1(class="videoId" id=`${video.id}`) #{video.title}
           .languageImg
             if video.languageId === 1
-              img(src='/images/python.png' class='logo')
+              img(src='/images/python-3.png' class='logo')
             if video.languageId === 2
-              img(src='/images/c++.png' class='logo')
+              img(src='/images/c-plus-plus.png' class='logo')
             if video.languageId === 3
-              img(src='/images/javascript.png' class='logo')
+              img(src='/images/javascript-2.png' class='logo')
             if video.languageId === 4
               img(src='/images/java.png' class='logo')
             if video.languageId === 5
               img(src='/images/fortran.png' class='logo')
             if video.languageId === 6
-              img(src='/images/c#.png' class='logo')
+              img(src='/images/cs.png' class='logo')
             if video.languageId === 7
               img(src='/images/c.png' class='logo')
             if video.languageId === 8
@@ -27,6 +27,20 @@ block content
               img(src='/images/html.png' class='logo')
             if video.languageId === 10
               img(src='/images/css.png' class='logo')
+            if video.languageId === 11
+              img(src='/images/matlab-2.png' class='logo')
+            if video.languageId === 12
+              img(src='/images/php.png' class='logo')
+            if video.languageId === 13
+              img(src='/images/ruby.png' class='logo')
+            if video.languageId === 14
+              img(src='/images/sql.png' class='logo')
+            if video.languageId === 15
+              img(src='/images/postgresql.png' class='logo')
+            if video.languageId === 16
+              img(src='/images/vb.png' class='logo')
+            if video.languageId === 17
+              img(src='/images/scala.png' class='logo')
         label(class='descriptionLabel') About this video:
         .descriptionBox
           p(class="description") #{video.description}

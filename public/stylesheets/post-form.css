@@ -5,11 +5,28 @@ body {
   /* background-image: url("./login-page2.png"); */
   background-size: cover;
 }
+.shell {
+  display: flex;
+  flex-direction: column;
+}
+
 .pageTitle {
   font-family: "Ubuntu", sans-serif;
   margin: 10px;
   padding: 10px;
   color: whitesmoke;
+}
+.error-display {
+  align-self: center;
+  /* align-content: center; */
+  background-color: black;
+  margin: 20px;
+  padding: 10px;
+  border-style: solid;
+  color: #c1bdba;
+  border-radius: 10px;
+  max-width: 400px;
+  height: 100%;
 }
 .outerContainer {
   display: flex;

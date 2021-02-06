@@ -68,16 +68,16 @@ const videoValidators = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a title")
-    .isLength({ max: 30 })
-    .withMessage("Title must be less than 30 characters"),
+    .isLength({ max: 150 })
+    .withMessage("Title must be less than 150 characters"),
   check("description")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a short description"),
   check("link")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a Video Link")
-    .isLength({ max: 50 })
-    .withMessage("Link must be less than 50 characters"),
+    .isLength({ max: 150 })
+    .withMessage("Link must be less than 150 characters"),
   check("languageId").exists({ checkFalsy: true }),
 ];
 const commentValidators = [
