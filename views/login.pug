@@ -19,9 +19,11 @@ html
                   img(class='code_hunt_logo' src='/images/logo.png')
                 .login-tab-group
                   .register-tab.active
-                    a.login.active(href='#register') Register
+                    a.login.active(href='#register')
+                      button(class='regBtn') Register
                   .login-tab
-                    a.login(href='#login') Login
+                    a.login(href='#login')
+                      button(class='logBtn') Login
                 form(action='/demo' method='post')
                   input(type='hidden' name='_csrf' value=token)
                   button.button(type='submit' class='demoBtn') Demo
