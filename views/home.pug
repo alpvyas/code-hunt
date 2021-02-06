@@ -7,21 +7,55 @@ block content
     .new_post_container
       div
         ul.new_post_list
-          li
-            .new_post_item
-              .new_post_content
-                .post_thumbnail
-                  img(class='thumbnail' src='/images/python.jpg')
-                .post_info
-                  h3 #{newestLink.title}
-                  p(class='post_desc') #{newestLink.description}
-                  .bottom_bar
-                    .comment_icon
-                      span(class='12345')
-                    .language_bar
-                      a(class='lang_link') #{newestLink.Language.name}
-              .vote_btn_container
-                button(class='vote_btn')
+          a(href=`/posts/${newestLink.id}/`)
+            li
+              .new_post_item
+                .new_post_content
+                  .post_thumbnail
+                    if newestLink.languageId === 1
+                      img(src='/images/python-3.png' class='logo')
+                    if newestLink.languageId === 2
+                      img(src='/images/c-plus-plus.png' class='logo')
+                    if newestLink.languageId === 3
+                      img(src='/images/javascript-2.png' class='logo')
+                    if newestLink.languageId === 4
+                      img(src='/images/java.png' class='logo')
+                    if newestLink.languageId === 5
+                      img(src='/images/fortran.png' class='logo')
+                    if newestLink.languageId === 6
+                      img(src='/images/cs.png' class='logo')
+                    if newestLink.languageId === 7
+                      img(src='/images/c.png' class='logo')
+                    if newestLink.languageId === 8
+                      img(src='/images/swift.png' class='logo')
+                    if newestLink.languageId === 9
+                      img(src='/images/html.png' class='logo')
+                    if newestLink.languageId === 10
+                      img(src='/images/css.png' class='logo')
+                      if newestLink.languageId === 11
+                      img(src='/images/matlab-2.png' class='logo')
+                    if newestLink.languageId === 12
+                      img(src='/images/php.png' class='logo')
+                    if newestLink.languageId === 13
+                      img(src='/images/ruby.png' class='logo')
+                    if newestLink.languageId === 14
+                      img(src='/images/sql.png' class='logo')
+                    if newestLink.languageId === 15
+                      img(src='/images/postgresql.png' class='logo')
+                    if newestLink.languageId === 16
+                      img(src='/images/vb.png' class='logo')
+                    if newestLink.languageId === 17
+                      img(src='/images/scala.png' class='logo')
+                  .post_info
+                    h3 #{newestLink.title}
+                    p(class='post_desc') #{newestLink.description}
+                    .bottom_bar
+                      .comment_icon
+                        span(class='12345')
+                      .language_bar
+                        a(class='lang_link') #{newestLink.Language.name}
+                .vote_btn_container
+                  button(class='vote_btn')
 
     .content_header
       span(class='styles_font') Today
@@ -34,7 +68,40 @@ block content
                 .post_item
                   .post_content
                     .post_thumbnail
-                      img(class='thumbnail' src='/images/python.jpg')
+                      if link.languageId === 1
+                        img(src='/images/python-3.png' class='logo')
+                      if link.languageId === 2
+                        img(src='/images/c-plus-plus.png' class='logo')
+                      if link.languageId === 3
+                        img(src='/images/javascript-2.png' class='logo')
+                      if link.languageId === 4
+                        img(src='/images/java.png' class='logo')
+                      if link.languageId === 5
+                        img(src='/images/fortran.png' class='logo')
+                      if link.languageId === 6
+                        img(src='/images/cs.png' class='logo')
+                      if link.languageId === 7
+                        img(src='/images/c.png' class='logo')
+                      if link.languageId === 8
+                        img(src='/images/swift.png' class='logo')
+                      if link.languageId === 9
+                        img(src='/images/html.png' class='logo')
+                      if link.languageId === 10
+                        img(src='/images/css.png' class='logo')
+                        if link.languageId === 11
+                        img(src='/images/matlab-2.png' class='logo')
+                      if link.languageId === 12
+                        img(src='/images/php.png' class='logo')
+                      if link.languageId === 13
+                        img(src='/images/ruby.png' class='logo')
+                      if link.languageId === 14
+                        img(src='/images/sql.png' class='logo')
+                      if link.languageId === 15
+                        img(src='/images/postgresql.png' class='logo')
+                      if link.languageId === 16
+                        img(src='/images/vb.png' class='logo')
+                      if link.languageId === 17
+                        img(src='/images/scala.png' class='logo')
                     .post_info
                       h3 #{link.title}
                       p(class='post_desc') #{link.description}
@@ -45,5 +112,5 @@ block content
                           a(class='lang_link') #{link.Language.name}
                   .vote_btn_container
                     button(class='vote_btn')
-
-  
+    .footer
+      include about-us.pug

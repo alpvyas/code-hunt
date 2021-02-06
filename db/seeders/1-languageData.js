@@ -55,6 +55,41 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "MATLAB",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "PHP",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Ruby",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "SQL",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "PostgreSQL",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Visual Basic",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Scala",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );

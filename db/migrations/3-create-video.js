@@ -10,7 +10,7 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(150),
       },
       description: {
         allowNull: false,
@@ -18,7 +18,7 @@ module.exports = {
       },
       link: {
         allowNull: false,
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(150),
         unique: true,
       },
       languageId: {
