@@ -46,6 +46,8 @@ html {
   text-align: center;
   display: flex;
   flex-direction: column;
+  width: 55%;
+  min-width: 500px;
 }
 .commentContainer {
   height: 300px;
@@ -83,6 +85,7 @@ html {
   background: rgb(7, 193, 193);
 }
 .linkBtn {
+  text-decoration: none;
   display: block;
   align-self: center;
   width: 100%;
@@ -95,6 +98,7 @@ html {
 }
 .linkBtn:hover,
 .linkBtn:focus {
+  text-decoration: none;
   background: rgb(7, 193, 193);
 }
 
@@ -103,7 +107,7 @@ html {
 }
 .videoId {
   align-self: center;
-  font-size: 50px;
+  font-size: 40px;
   color: whitesmoke;
   margin: 10px;
   padding: 10px;
@@ -153,14 +157,14 @@ textarea {
   align-items: center;
 }
 .videoTitle {
-  height: 130px;
+  height: fit-content;
   justify-content: center;
   align-self: center;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   box-sizing: border-box;
-  width: 75%;
+  width: 100%;
 }
 .descriptionLabel {
   font-size: 30px;
@@ -193,4 +197,7 @@ textarea {
 .videoLinkContainer {
   align-self: center;
   box-sizing: border-box;
+}
+.videoLink {
+  text-decoration: none;
 }

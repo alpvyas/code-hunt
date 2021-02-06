@@ -35,13 +35,13 @@ body {
   border-radius: 50%;
   background-color: teal;
   padding-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
-  height: 80px;
-  margin-top: 20px;
-  margin-left: 60px;
-  margin-right: 60px;
+  align-self: center;
+  height: auto;
   font-size: 140px;
   color: whitesmoke;
 }

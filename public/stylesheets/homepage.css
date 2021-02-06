@@ -1,9 +1,13 @@
 html {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   height: 100%;
 }
 
-
+.logo {
+  height: 100px;
+  width: 100px;
+}
 
 .content_container {
   display: flex;
@@ -82,7 +86,7 @@ li:hover,
   border: none;
 }
 
-.new_post_content:hover{
+.new_post_content:hover {
   background-color: #f3f3f3;
 }
 
@@ -164,7 +168,6 @@ a {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 5%;
-
 }
 
 .vote_btn {

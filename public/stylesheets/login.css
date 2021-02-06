@@ -7,9 +7,7 @@ html {
   background-color: #13232f;
 }
 .login-tab.active,
-.register-tab.active,
-.login-tab.active > a,
-.register-tab.active > a {
+.register-tab.active {
   background-color: rgb(7, 193, 193);
 }
 .formContainer {
