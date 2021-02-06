@@ -11,7 +11,6 @@ const {
   asyncHandler,
 } = require("./utils");
 
-/* GET users listing. */
 router.get("/", csrfProtection, async (req, res) => {
   const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
   res.render("login", {
@@ -20,7 +19,6 @@ router.get("/", csrfProtection, async (req, res) => {
     languages,
   });
 });
-//log user in
 router.post(
   "/",
   csrfProtection,
@@ -73,7 +71,6 @@ router.get("/register", csrfProtection, (req, res) => {
   res.render("login", { user, token: req.csrfToken() });
 });
 
-// register / signup
 router.post(
   "/register",
   csrfProtection,

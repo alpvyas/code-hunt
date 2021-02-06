@@ -13,7 +13,6 @@ const { restoreUser } = require("./auth");
 
 const app = express();
 
-// view engine setup
 app.set("view engine", "pug");
 
 app.use(logger("dev"));
@@ -22,7 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.static(path.join(__dirname, "public")));
 
-// set up session middleware
 const store = new SequelizeStore({ db: sequelize });
 
 app.use(
@@ -34,24 +32,18 @@ app.use(
   })
 );
 app.use(restoreUser);
-// create Session table if it doesn't already exist
 store.sync();
 
 app.use(usersRouter);
 app.use("/posts", postsRouter);
 app.use("/api", apiRouter);
-// catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render("error");
 });
