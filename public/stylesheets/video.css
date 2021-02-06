@@ -98,16 +98,16 @@ html {
   background: rgb(7, 193, 193);
 }
 
+.authorText {
+  font-size: 10px;
+}
 .videoId {
   align-self: center;
   font-size: 50px;
   font-family: "Ubuntu", sans-serif;
   color: whitesmoke;
-  margin: 0px;
-  padding: 0px;
-}
-.authorText {
-  font-size: 10px;
+  margin: 10px;
+  padding: 10px;
 }
 .logo {
   height: 50px;

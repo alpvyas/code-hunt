@@ -4,27 +4,33 @@ extends navbar.pug
 block content
     link(rel="stylesheet" href="/stylesheets/post-form.css")
     body
-    .outerContainer
-        .post-form-container
-            h1(class='pageTitle') Create a New Post
-            form(method="post" action="/posts/new")
-                input(type="hidden" name="_csrf" value=token)
-                .form-item
-                    label(for="title") Post Title
-                    input(id="title" type="text", name="title" value=title)
-                .form-item
-                    label(for="description") Video Description
-                    textarea(id="description" name="description" cols="30" rows="10" required value=description)
-                .form-item
-                    label(for="link") Video Link
-                    input(id="link" type="text", name="link" required value=link)
-                .form-item
-                    label(for="language") Programming Language
-                    select(name="languageId")
-                        each language in languages
-                            option(value=language.id)= language.name
-                .form-item
-                    button.button(type="submit") Create
-
+    .shell
+        if errors
+            .error-display
+                div(class='alert' role='alert') The following error(s) occurred:
+                    ul
+                        each error in errors
+                            li= error
+        .outerContainer
+            .post-form-container
+                h1(class='pageTitle') Create a New Post
+                form(method="post" action="/posts/new")
+                    input(type="hidden" name="_csrf" value=token)
+                    .form-item
+                        label(for="title") Post Title
+                        input(id="title" type="text", name="title" value=title)
+                    .form-item
+                        label(for="description") Video Description
+                        textarea(id="description" name="description" cols="30" rows="10" required value=description)
+                    .form-item
+                        label(for="link") Video Link
+                        input(id="link" type="text", name="link" required value=link)
+                    .form-item
+                        label(for="language") Programming Language
+                        select(name="languageId")
+                            each language in languages
+                                option(value=language.id)= language.name
+                    .form-item
+                        button.button(type="submit") Create
         .footer
                 include about-us.pug

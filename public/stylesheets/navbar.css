@@ -14,7 +14,7 @@
   overflow: hidden;
   background-color: white;
   border: 1px solid darkgray;
-  padding: 5px ;
+  padding: 5px;
 }
 
 .navbar_container {
@@ -25,7 +25,7 @@
 }
 
 .navbar_search {
-  display:flex;
+  display: flex;
   align-items: center;
   border: 1px solid lightgray;
   height: 40px;
@@ -38,7 +38,6 @@
 
 .navbar_post {
   border: white;
-
 }
 
 .search_label {
@@ -89,7 +88,8 @@
 }
 
 .dropdown:hover,
-.dropbtn, .searchbtn:hover,
+.dropbtn,
+.searchbtn:hover,
 .postbtn:hover {
   background-color: lightgray;
 }
@@ -139,9 +139,7 @@
   font-size: 16px;
   margin: 4px 4px;
   cursor: pointer;
-} 
-
-
+}
 
 body {
   margin: 0;

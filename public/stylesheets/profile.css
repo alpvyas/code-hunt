@@ -1,10 +1,11 @@
 h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: whitesmoke;
 }
 
 body {
   background-image: none;
+  background-color: black;
 }
 
 .profile-container {
@@ -33,7 +34,6 @@ body {
   border-radius: 50%;
   background-color: teal;
   padding-top: 10px;
-
 }
 
 .logo {
@@ -42,8 +42,8 @@ body {
   margin-left: 60px;
   margin-right: 60px;
   font-size: 140px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color:whitesmoke;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: whitesmoke;
 }
 
 .user-info {
@@ -56,27 +56,27 @@ body {
 
 .user-name {
   max-height: 50px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 30px;
   padding-bottom: 20px;
 }
 
 .user-message {
   height: 30px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
 }
 
 .user-id {
   height: 30px;
-  font-family:Georgia, 'Times New Roman', Times, serif
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .edit-profile-button {
-  background-color:  teal;
+  background-color: teal;
   display: block;
-  justify-content: space-between ;
-  width:50%;
+  justify-content: space-between;
+  width: 50%;
   height: 40px;
   font-size: 15px;
   color: #fff;
@@ -98,15 +98,13 @@ body {
 }
 
 .display {
-
   width: 200px;
   height: 100px;
   margin-left: 40px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 30px;
   padding-top: 50px;
   color: whitesmoke;
-  
 }
 
 .links-container {
@@ -145,30 +143,47 @@ body {
   border-style: solid;
   /* padding-right: 20px; */
   padding-left: 200px;
-
 }
 
 .delete-logo {
-  border-style: solid;
-  background-color: teal;
-  color: whitesmoke;
-  border-radius: 20px;
-  margin-left: 250px;
-  margin-right: 10px;
-
-}
-
-img {
+  margin: 10px;
+  background-color: rgb(5, 142, 142);
   align-self: center;
-  border-style: solid;
-  transform: scale(0.5, 0.5);
-  -ms-transform: scale(0.5, 0.5);
-  -webkit-transform: scale(0.5, 0.5);
-  /* margin-left: 60px; */
-  margin-bottom: 30px;
+  width: 100px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
-
-.button-container, .description-container {
+.linkBtn {
+  margin-bottom: 5px;
+  background-color: rgb(5, 142, 142);
+  align-self: center;
+  width: 150px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.linkBtn:hover,
+.linkBtn:focus,
+.delete-logo:hover,
+.delete-logo:focus {
+  background: rgb(7, 193, 193);
+}
+.button-container,
+.description-container {
   align-self: center;
 }
-
+.langLogo {
+  height: 50px;
+  width: auto;
+}
+.imgContainer {
+  margin-left: 10px;
+  align-self: center;
+  height: 50px;
+  width: auto;
+}

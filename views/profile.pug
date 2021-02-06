@@ -2,6 +2,7 @@ extends navbar.pug
 
 block content
   link(rel='stylesheet' href='/stylesheets/profile.css')
+  script(src="./javascripts/profile-delete.js" type="module" defer)
   .profile-container
     .space1
     .user-logo-container
@@ -13,8 +14,8 @@ block content
         strong= `${user.first_name} ${user.last_name}`
       .user-message= `I am ${user.first_name}`
       .user-id= `#${user.id }    @${user.first_name}_${user.last_name}`
-      .edit-profile
-        button.edit-profile-button(type="button") EDIT MY PROFILE
+      //- .edit-profile
+      //-   button.edit-profile-button(type="button") EDIT MY PROFILE
   .space3
     .display
       strong MY LINKS
@@ -22,27 +23,43 @@ block content
     each userLink in userLinks
         div(class=".mylink-container" id=`mylinks${userLink.id}`)
           .link
-            if userLink.languageId === 1
-              img(src='/images/python.png' class='logo')
-            if userLink.languageId === 9
-              img(src='/images/c++.png' class='logo')
-            if userLink.languageId === 3
-              img(src='/images/javascript.png' class='logo')
-            if userLink.languageId === 4
-              img(src='/images/java.png' class='logo')
-            if userLink.languageId === 5
-              img(src='/images/fortran.png' class='logo')
-            if userLink.languageId === 6
-              img(src='/images/c#.png' class='logo')
-            if userLink.languageId === 7
-              img(src='/images/c.png' class='logo')
-            if userLink.languageId === 8
-              img(src='/images/swift.png' class='logo')
-            if userLink.languageId === 11
-              img(src='/images/html.png' class='logo')
-            if userLink.languageId === 10
-              img(src='/images/css.png' class='logo')
+            .imgContainer
+              if userLink.languageId === 1
+                img(src='/images/python-3.png' class='langLogo')
+              if userLink.languageId === 2
+                img(src='/images/c-plus-plus.png' class='langLogo')
+              if userLink.languageId === 3
+                img(src='/images/javascript-2.png' class='langLogo')
+              if userLink.languageId === 4
+                img(src='/images/java.png' class='langLogo')
+              if userLink.languageId === 5
+                img(src='/images/fortran.png' class='langLogo')
+              if userLink.languageId === 6
+                img(src='/images/cs.png' class='langLogo')
+              if userLink.languageId === 7
+                img(src='/images/c.png' class='langLogo')
+              if userLink.languageId === 8
+                img(src='/images/swift.png' class='langLogo')
+              if userLink.languageId === 9
+                img(src='/images/html.png' class='langLogo')
+              if userLink.languageId === 10
+                img(src='/images/css.png' class='langLogo')
+              if userLink.languageId === 11
+                img(src='/images/matlab-2.png' class='langLogo')
+              if userLink.languageId === 12
+                img(src='/images/php.png' class='langLogo')
+              if userLink.languageId === 13
+                img(src='/images/ruby.png' class='langLogo')
+              if userLink.languageId === 14
+                img(src='/images/sql.png' class='langLogo')
+              if userLink.languageId === 15
+                img(src='/images/postgresql.png' class='langLogo')
+              if userLink.languageId === 16
+                img(src='/images/vb.png' class='langLogo')
+              if userLink.languageId === 17
+                img(src='/images/scala.png' class='langLogo')
             .description-container
-              a(href=`/posts/${userLink.id}`)= userLink.link
+              a(href=`/posts/${userLink.id}`)
+                button(class='linkBtn') #{userLink.title}
             .button-container
               button(class=`delete-logo` id=userLink.id) DELETE
