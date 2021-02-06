@@ -19,7 +19,6 @@ const checkPermissions = (video, currentUser) => {
     throw err;
   }
 };
-/* GET home page. */
 router.get(
   "/new",
   csrfProtection,
@@ -78,7 +77,6 @@ router.get(
     });
   })
 );
-//add delete comments for this
 router.delete(
   "/:pid/delete",
   requireAuth,
@@ -103,7 +101,6 @@ router.delete(
     res.json({ links, userId: res.locals.user.id });
   })
 );
-//test, if does not pass, change get to put
 router.get(
   "/search",
   requireAuth,

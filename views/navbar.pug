@@ -39,35 +39,4 @@ html
           .navbar_logout
             a(href='/logout')
               button(class='btn logout_btn' type='submit') Logout
-
   block content
-
-
-
-
-
-
-
-
-
-
-
-
-    //- nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
-    //-   form(method='get' action="/home")
-    //-     button(type="submit") Code Hunt
-    //-   form(method='get' action="/posts/search")
-    //-     input(type="text" name="searchTerm" id="searchTerm")
-    //-     button(type="submit") Search
-    //-   select(name="languageId" placeholder="categories")
-    //-     each language in languages
-    //-       option(value=language.id)= language.name
-    //-   form(method='get' action="/posts/new")
-    //-     button(type="submit") Post
-    //-   form(method='get' action="/profile")
-    //-     button(type="submit") Profile
-    //-   span(class='navbar-text px-4') Welcome, #{user.first_name}!
-    //-   form(class='form-inline pr-4' action='/logout' method='get')
-    //-     button(class='btn btn-sm btn-warning' type='submit') Logout
-
-    //- block content
