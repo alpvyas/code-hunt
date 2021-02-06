@@ -6,8 +6,8 @@
 html {
   background-color: #13232f;
 }
-.login-tab.active,
-.register-tab.active {
+.loginBtn.active,
+.regBtn.active {
   background-color: rgb(7, 193, 193);
 }
 .formContainer {
@@ -20,8 +20,6 @@ html {
 .error-display.hidden {
   display: none;
 }
-
-/* Split the screen in half */
 .split {
   height: 100%;
   display: flex;
@@ -30,12 +28,9 @@ html {
   align-items: center;
   background-color: #13232f;
 }
-
-/* Control the left side */
 .left {
   justify-content: center;
   align-items: center;
-  /*814.867*/
   border-style: solid;
   color: #c1bdba;
   border-radius: 10px;
@@ -69,7 +64,6 @@ html {
   width: auto;
   background-color: whitesmoke;
 }
-/* Control the right side */
 .right {
   justify-content: center;
   align-items: center;
@@ -79,11 +73,8 @@ html {
   right: 0;
   display: flex;
   flex-direction: column;
-  /* background-color:#c1bdba; */
   background-color: #13232f;
 }
-
-/* If you want the content centered horizontally and vertically */
 .center {
   padding: 10px;
   box-sizing: border-box;
@@ -95,7 +86,6 @@ html {
 }
 
 .form {
-  /* background-color: #c1bdba; */
   background-color: #13232f;
   width: 350px;
   border-style: solid;
@@ -110,7 +100,6 @@ html {
 }
 
 .error-display {
-  /* align-content: center; */
   background-color: black;
   margin: 20px;
   padding: 10px;
@@ -137,14 +126,24 @@ textarea {
   color: rgb(5, 142, 142);
   font-size: 30px;
 }
-.register-tab,
-.login-tab,
+
 .demoBtn {
   background-color: rgb(5, 142, 142);
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
+  border: none;
+}
+.loginBtn,
+.regBtn {
+  background-color: #13232f;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 30px;
+  padding: 5px;
 }
 
 .register-tab,
@@ -153,25 +152,20 @@ a {
   background-color: #13232f;
   width: 150px;
   font-size: 30px;
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
 }
 
-.register-tab:hover,
-.register-tab:focus,
+.regBtn:hover,
+.regBtn:focus,
+.loginBtn:hover,
+.loginBtn:focus,
 .demoBtn:hover,
-.demoBtn:focus,
-.login-tab-group > a:hover,
-.login-tab-group > a:focus,
-a.login:hover,
-a.login:focus,
-.login-tab:hover,
-.login-tab:focus {
+.demoBtn:focus {
   background-color: rgb(7, 193, 193);
 }
 
 .button {
+  padding: 5px;
+  border: none;
   align-self: center;
   margin: 10px;
   background-color: rgb(5, 142, 142);
