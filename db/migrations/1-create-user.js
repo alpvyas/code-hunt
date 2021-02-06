@@ -10,11 +10,11 @@ module.exports = {
       },
       first_name: {
         allowNull: false,
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(50),
       },
       last_name: {
         allowNull: false,
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(50),
       },
       email: {
         allowNull: false,

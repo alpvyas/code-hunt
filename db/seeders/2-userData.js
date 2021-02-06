@@ -1,7 +1,13 @@
 "use strict";
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize, 
+    randomDate = () => {
+    const start = new Date(2020, 0, 1);
+    const end = new Date();
+    return new Date(start.getTime() + Math.random() * 
+      (end.getTime() - start.getTime()));
+  },) => {
     return queryInterface.bulkInsert(
       "Users",
       [
@@ -13,8 +19,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "Founder of Microsoft",
           username: "bill_gates",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Steve",
@@ -24,8 +30,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "Apple's true father",
           username: "wozwoz",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Ada",
@@ -35,8 +41,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "History's first programmer",
           username: "lovelace",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Margaret",
@@ -46,8 +52,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "Made the 'small step for man' possible",
           username: "onesmallstep",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Louis",
@@ -57,8 +63,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "The man who didn't invent the internet",
           username: "lpouzin",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Larry",
@@ -68,8 +74,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "Creator of Google",
           username: "googling_page",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Karen",
@@ -79,8 +85,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "Pioneer of Artificial Intelligence",
           username: "AIamI",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Linus",
@@ -90,8 +96,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "The father of Linux",
           username: "linuslinux",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Alan",
@@ -102,8 +108,8 @@ module.exports = {
           bio:
             "Computer scientist, mathematician and logician who created the Turing machine.",
           username: "turing_the_machine",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Vint",
@@ -113,8 +119,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "FI helped pioneer the Internet",
           username: "vgc43",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Samarendra Kumar",
@@ -125,8 +131,8 @@ module.exports = {
           bio:
             "Designed, developed and constructed India's first indigenous computer in ISI in 1953.",
           username: "samkumitra",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Melba Roy",
@@ -136,8 +142,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "One of NASA's human computers",
           username: "human_computer",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
         {
           first_name: "Demo",
@@ -147,8 +153,8 @@ module.exports = {
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
           bio: "Demo Bio",
           username: "demoUser",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: randomDate(),
+          updatedAt: randomDate(),
         },
       ],
       {}

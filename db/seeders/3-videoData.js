@@ -1,7 +1,13 @@
 "use strict";
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize,
+    randomDate = () => {
+    const start = new Date(2020, 0, 1);
+    const end = new Date();
+    return new Date(start.getTime() + Math.random() * 
+      (end.getTime() - start.getTime()));
+  },) => {
     return queryInterface.bulkInsert("Videos", [
       {
         title: "Learn JavaScript in 3 Hours!",
@@ -9,8 +15,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=PkZNo7MFNFg",
         languageId: 3,
         userId: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Cool Projects in Python",
@@ -18,8 +24,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=OXi4T58PwdM",
         languageId: 1,
         userId: 2,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Become a Gaming Dev with C++",
@@ -27,8 +33,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=AwWD0XhLzbE",
         languageId: 2,
         userId: 3,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "C Programming for Beginners",
@@ -36,8 +42,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=8PopR3x-VMY",
         languageId: 9,
         userId: 4,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Intermediate Python Programming Course",
@@ -45,8 +51,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=HGOBQPFzWKo",
         languageId: 1,
         userId: 5,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "C++ for Beginners",
@@ -54,8 +60,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=vLnPwxZdW4Y",
         languageId: 2,
         userId: 9,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "C++ From the Basics to the Advanced",
@@ -63,8 +69,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=mUQZ1qmKlLY",
         languageId: 2,
         userId: 12,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "No One Likes CSS, but You've Gotta Learn It",
@@ -72,8 +78,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=iHEkRIF7zxI",
         languageId: 10,
         userId: 12,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Learn FORTRAN in One Video",
@@ -81,8 +87,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=__2UgFNYgf8",
         languageId: 5,
         userId: 10,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Coding for Physics - Dot Products in Python",
@@ -90,8 +96,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=1hm_NdnbsGg&t=1s",
         languageId: 1,
         userId: 9,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Swift in 3 Hours - Full Course",
@@ -99,8 +105,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=comQ1-x2a1Q",
         languageId: 10,
         userId: 2,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "MATLAB for Scientists and Engineers",
@@ -108,8 +114,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=NSSTkkKRabI",
         languageId: 11,
         userId: 9,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Code-It-Yourself! Flappy Bird in C++",
@@ -117,8 +123,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=b6A4XHkTjs8",
         languageId: 2,
         userId: 6,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "Basic SQL in 10 Minutes",
@@ -126,8 +132,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=bEtnYWuo2Bw",
         languageId: 14,
         userId: 3,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
       {
         title: "5 Javascript Projects to Build",
@@ -135,8 +141,8 @@ module.exports = {
         link: "https://www.youtube.com/watch?v=roumzWd4XJU",
         languageId: 3,
         userId: 12,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: randomDate(),
+        updatedAt: randomDate(),
       },
     ]);
   },
