@@ -104,7 +104,6 @@ html {
 .videoId {
   align-self: center;
   font-size: 50px;
-  font-family: "Ubuntu", sans-serif;
   color: whitesmoke;
   margin: 10px;
   padding: 10px;
@@ -142,7 +141,6 @@ textarea {
 }
 .commentText {
   font-size: 12px;
-  font-family: "Ubuntu", sans-serif;
   height: 50px;
   width: 100%;
   text-align: center;
@@ -165,21 +163,18 @@ textarea {
   width: 75%;
 }
 .descriptionLabel {
-  font-family: "Ubuntu", sans-serif;
   font-size: 30px;
   margin-top: 10px;
   padding-top: 10px;
   color: whitesmoke;
 }
 .commentsLabel {
-  font-family: "Ubuntu", sans-serif;
   font-size: 30px;
   margin-top: 10px;
   padding-top: 10px;
   color: whitesmoke;
 }
 .description {
-  font-family: "Ubuntu", sans-serif;
   font-size: 18px;
   text-align: left;
 }

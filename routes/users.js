@@ -140,6 +140,11 @@ router.get(
       where: { userId },
       include: "Language",
     });
+    userLinks.forEach((link) => {
+      if (link.title.length > 50) {
+        link.title = `${link.title.substring(0, 50)}...`;
+      }
+    });
     const newestLink = await db.Video.findOne({
       order: [["createdAt", "DESC"]],
       include: "Language",
