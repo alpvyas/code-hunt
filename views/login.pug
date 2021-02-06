@@ -11,9 +11,9 @@ html
         script(src="/javascripts/login.js" defer)
   body
       include utils.pug
-      .split
-        .right
-          .formContainer
+      .split.right
+            .error-display
+              +validationErrorSummary(errors)
             .form.center
                 div(class="imgShell")
                   img(class='code_hunt_logo' src='/images/logo.png')
@@ -22,9 +22,9 @@ html
                     a.login.active(href='#register') Register
                   .login-tab
                     a.login(href='#login') Login
-                form(action='/demo' method='post')
-                  input(type='hidden' name='_csrf' value=token)
-                  button.button(type='submit' class='demoBtn') Demo
+                  form(action='/demo' method='post')
+                    input(type='hidden' name='_csrf' value=token)
+                    button.button(type='submit' class='demoBtn') Demo
                 if login
                   #login
                     h1 Welcome Back!
@@ -94,11 +94,10 @@ html
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
                         button.button.button-block(type='submit') Register
-        .left
-          if(errors)
-            .error-display
-              +validationErrorSummary(errors)
-          img(class='bgImg' src='/images/login-page.png')
-          img(class='introImg' src='/images/background1.png')
+      .split.left
+        img(class='bgImg' src='/images/login-page.png')
+        img(class='introImg' src='/images/background1.png')
+        //- .error-display
+        //-       +validationErrorSummary(errors)
         .footer
               include about-us.pug

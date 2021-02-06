@@ -16,7 +16,7 @@ body {
   flex-direction: column;
 }
 .post-form-container {
-  width: 350px;
+  width: 40%;
   display: flex;
   align-self: center;
   background-position: center;

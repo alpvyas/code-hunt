@@ -8,6 +8,7 @@
   position: absolute;
   grid-template-areas: "person1 person2 person3 project";
   background-color: #13232f;
+  margin: 0;
   padding-bottom: 5px;
   height: auto;
   bottom: 0px;
