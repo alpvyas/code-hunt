@@ -1,13 +1,14 @@
 h1 {
-  font-family: Georgia, "Times New Roman", Times, serif;
   color: whitesmoke;
 }
 
 body {
-  background-image: none;
-  background-color: black;
+  display: flex;
+  flex-direction: column;
 }
-
+.strong {
+  align-self: center;
+}
 .profile-container {
   background-color: whitesmoke;
   border-radius: 20px;
@@ -42,7 +43,6 @@ body {
   margin-left: 60px;
   margin-right: 60px;
   font-size: 140px;
-  font-family: Georgia, "Times New Roman", Times, serif;
   color: whitesmoke;
 }
 
@@ -56,20 +56,17 @@ body {
 
 .user-name {
   max-height: 50px;
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 30px;
   padding-bottom: 20px;
 }
 
 .user-message {
   height: 30px;
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
 }
 
 .user-id {
   height: 30px;
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .edit-profile-button {
@@ -95,29 +92,28 @@ body {
 
 .space3 {
   height: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .display {
+  align-self: center;
   width: 200px;
   height: 100px;
   margin-left: 40px;
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 30px;
   padding-top: 50px;
   color: whitesmoke;
 }
 
 .links-container {
+  align-self: center;
   border-style: solid;
   /* display: flex; */
   border-style: solid;
   border-color: whitesmoke;
   /* height: 0px; */
-  border-radius: 20px;
-  margin-left: 40px;
-  margin-right: 50%;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  width: 80%;
   background-color: teal;
 }
 
@@ -160,7 +156,10 @@ body {
   margin-bottom: 5px;
   background-color: rgb(5, 142, 142);
   align-self: center;
-  width: 150px;
+  width: fit-content;
+  height: fit-content;
+  max-height: 50px;
+  overflow: hidden;
   font-size: 20px;
   color: #fff;
   border-radius: 10px;

@@ -11,14 +11,14 @@ block content
     .user-info
       .space2
       .user-name
-        strong= `${user.first_name} ${user.last_name}`
+        strong(class="strong")= `${user.first_name} ${user.last_name}`
       .user-message= `I am ${user.first_name}`
       .user-id= `#${user.id }    @${user.first_name}_${user.last_name}`
       //- .edit-profile
       //-   button.edit-profile-button(type="button") EDIT MY PROFILE
   .space3
     .display
-      strong MY LINKS
+      strong(class="strong") MY LINKS
   .links-container
     each userLink in userLinks
         div(class=".mylink-container" id=`mylinks${userLink.id}`)
