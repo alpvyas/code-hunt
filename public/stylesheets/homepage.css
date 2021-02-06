@@ -177,3 +177,13 @@ a {
   background-color: transparent;
 }
 
+.footer {
+  display: grid;
+  position: fixed;
+  left: 5 0%;
+  bottom: 0;
+  width: 100%;
+  background-color: #13232f;
+  color: whitesmoke;
+  text-align: center;
+}

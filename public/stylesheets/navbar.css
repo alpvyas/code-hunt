@@ -13,7 +13,8 @@
   height: 66px;
   overflow: hidden;
   background-color: white;
-  border: 1px solid lightgray;
+  border: 1px solid darkgray;
+  padding: 5px ;
 }
 
 .navbar_container {
@@ -87,9 +88,9 @@
   cursor: pointer;
 }
 
-.navbar a:hover,
-.dropdown:hover .dropbtn,
-.searchbtn:hover {
+.dropdown:hover,
+.dropbtn, .searchbtn:hover,
+.postbtn:hover {
   background-color: lightgray;
 }
 
