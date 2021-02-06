@@ -5,9 +5,6 @@ html
         title= title
         link(rel='stylesheet' href='/stylesheets/login.css')
         link(rel='stylesheet' href='/stylesheets/footer.css')
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
-        link(rel="preconnect" href="https://fonts.gstatic.com")
-        link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
         script(src="/javascripts/login.js" defer)
   body
       include utils.pug
@@ -20,10 +17,10 @@ html
                 .login-tab-group
                   .register-tab.active
                     a.login.active(href='#register')
-                      button(class='regBtn') Register
+                      button(class='regBtn active') Register
                   .login-tab
                     a.login(href='#login')
-                      button(class='logBtn') Login
+                      button(class='loginBtn') Login
                 form(action='/demo' method='post')
                   input(type='hidden' name='_csrf' value=token)
                   button.button(type='submit' class='demoBtn') Demo
