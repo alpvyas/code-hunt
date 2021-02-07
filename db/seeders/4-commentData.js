@@ -33,7 +33,7 @@ module.exports = {
         "Where are the recipes?",
         "Google, why am I on this website?",
         "There are just entirely too many puns on the home page!",
-        "Could the people who made this website make a better website but for video games?",
+        "This website is great!",
         "There are too many comments!",
         "There are not enough comments!",
       ];
