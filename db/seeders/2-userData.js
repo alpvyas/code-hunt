@@ -1,11 +1,11 @@
 "use strict";
 
 module.exports = {
-  up: (queryInterface, Sequelize, 
+  up: (queryInterface, Sequelize,
     randomDate = () => {
     const start = new Date(2020, 0, 1);
     const end = new Date();
-    return new Date(start.getTime() + Math.random() * 
+    return new Date(start.getTime() + Math.random() *
       (end.getTime() - start.getTime()));
   },) => {
     return queryInterface.bulkInsert(
@@ -28,7 +28,7 @@ module.exports = {
           email: "woz@apple.com",
           hashedPassword:
             "$2y$08$yRvoJ0WKbw9doOqFAd3YcuSvb2TBbsXTrII/VGNUbnSVvB.eS7W.K",
-          bio: "Apple's true father",
+          bio: "Founder of Apple",
           username: "wozwoz",
           createdAt: randomDate(),
           updatedAt: randomDate(),

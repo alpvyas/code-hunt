@@ -51,10 +51,10 @@ router.post(
       await video.save();
       res.redirect(`/posts/${video.id}`);
     } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
+      const errors2 = validatorErrors.array().map((error) => error.msg);
       res.render("new-post", {
         video,
-        errors,
+        errors2,
         token: req.csrfToken(),
         languages,
       });
