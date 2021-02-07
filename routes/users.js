@@ -100,7 +100,7 @@ router.post(
         title: "Register",
         token: req.csrfToken(),
         user,
-        registerStatus: false,
+        registerStatus: true,
       });
     }
   })

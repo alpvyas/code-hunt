@@ -102,9 +102,14 @@ html
                       div(class='py-4')
                         button.button.button-block(type='submit') Register
         .left
-          if(errors)
-            .error-display
-              +validationErrorSummary(errors)
+          if login
+            if(errors)
+              .error-display
+                +validationErrorSummary(errors)
+          if registerStatus
+            if(errors)
+              .error-display
+                +validationErrorSummary(errors)
           img(class='bgImg' src='/images/login-page.png')
           img(class='introImg' src='/images/background1.png')
         .footer
