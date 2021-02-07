@@ -38,7 +38,7 @@ html {
   position: relative;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-  background-color: #fff;
+  background-color: rgb(5, 142, 142);
   padding: 2px;
   margin: 10px 30px 50px 30px;
 }
@@ -56,7 +56,7 @@ li {
 
 li:hover,
 .vote_btn_container:hover {
-  background-color: #f3f3f3;
+  background-color: rgb(7, 193, 193);
 }
 
 .post_list {
@@ -65,7 +65,7 @@ li:hover,
   padding: 0;
 }
 .post_item {
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 2px solid whitesmoke;
   position: relative;
   cursor: pointer;
 }
@@ -91,7 +91,7 @@ li:hover,
 }
 
 a {
-  color: inherit;
+  color: whitesmoke;
   text-decoration: none;
   background-color: transparent;
 }
@@ -112,7 +112,7 @@ a {
   line-height: 20px;
   font-weight: 400;
   font-size: 15px;
-  color: #6f6f6f;
+  color: whitesmoke;
   font-variant-numeric: tabular-nums;
   margin: 0 0 12px;
   flex-grow: 1;
@@ -154,7 +154,7 @@ a {
 .lang_link {
   display: flex;
   align-items: center;
-  color: #6f6f6f;
+  color: whitesmoke;
 }
 
 .vote_btn_container {
