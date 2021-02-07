@@ -309,7 +309,7 @@ module.exports = {
         updatedAt: randomDate(),
       },
       {
-        title: `This programming language exclusively purchases pumpkin spice lattes`,
+        title: `This video was very helpful!`,
         description: "This was very helpful for learning Visual Basic",
         link:
           "https://www.youtube.com/watch?v=3FkWddODLno&ab_channel=DerekBanas",
