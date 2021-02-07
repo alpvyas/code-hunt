@@ -10,6 +10,12 @@ html {
 .regBtn.active {
   background-color: rgb(7, 193, 193);
 }
+.subText {
+  font-size: 12px;
+}
+label {
+  font-size: 18px;
+}
 .formContainer {
   display: flex;
   flex-direction: row;
@@ -31,8 +37,6 @@ html {
 .left {
   justify-content: center;
   align-items: center;
-  border-style: solid;
-  color: #c1bdba;
   border-radius: 10px;
   max-width: 890px;
   min-width: 430px;
@@ -88,8 +92,6 @@ html {
 .form {
   background-color: #13232f;
   width: 350px;
-  border-style: solid;
-  color: #c1bdba;
   border-radius: 10px;
 }
 

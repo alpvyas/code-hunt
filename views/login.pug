@@ -97,6 +97,7 @@ html
                           +field('Email Address', 'email', email, 'email')
                         .form-item
                           +field('Password', 'password', password, 'password')
+                        label.subText='Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'
                         .form-item
                           +field('Confirm Password', 'confirmPassword', '', 'password')
                       div(class='py-4')
