@@ -5,11 +5,11 @@ block content
     link(rel="stylesheet" href="/stylesheets/post-form.css")
     body
     .shell
-        if errors
+        if errors2
             .error-display
                 div(class='alert' role='alert') The following error(s) occurred:
                     ul
-                        each error in errors
+                        each error in errors2
                             li= error
         .outerContainer
             .post-form-container
