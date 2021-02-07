@@ -68,6 +68,9 @@ router.get(
     const videoId = req.params.pid;
     const video = await db.Video.findByPk(videoId);
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
+    if (!video.title.includes(" ")) {
+      video.title = `${video.title.substring(0, 26)}...`;
+    }
     const comments = await db.Comment.findAll({ where: { videoId } });
     res.render("video", {
       languages,

@@ -53,6 +53,7 @@
 }
 
 .button {
+  border: none;
   background-color: rgb(5, 142, 142);
   display: block;
   justify-content: space-between;

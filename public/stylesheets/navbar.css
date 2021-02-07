@@ -9,8 +9,10 @@ body {
   background-color: #13232f;
 }
 .code_hunt_logo {
-  max-width: 60%;
-  max-height: 60%;
+  min-width: 120px;
+  min-height: 120px;
+  width: 60%;
+  height: 60%;
   object-fit: contain;
 }
 
