@@ -10,6 +10,7 @@ body {
   align-self: center;
 }
 .profile-container {
+  margin-top: 20px;
   background-color: whitesmoke;
   border-radius: 20px;
   display: flex;
@@ -27,6 +28,7 @@ body {
 }
 
 .user-logo {
+  min-width: 220px;
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: 40px;
@@ -41,12 +43,12 @@ body {
 
 .logo {
   align-self: center;
-  height: auto;
   font-size: 140px;
   color: whitesmoke;
 }
 
 .user-info {
+  min-width: 300px;
   width: 300px;
 }
 
@@ -99,21 +101,24 @@ body {
 }
 
 .links-container {
+  min-height: 200px;
+  min-width: 750px;
   align-self: center;
   border-style: solid;
   border-style: solid;
+  border-radius: 5px;
   border-color: whitesmoke;
   width: 80%;
   background-color: teal;
 }
 
 .link {
-  border-style: solid;
+  border: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: whitesmoke;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 70px;
   margin: 10px;
 }
@@ -125,32 +130,34 @@ body {
 }
 
 .delete {
-  border-style: solid;
+  border: none;
   padding-left: 200px;
 }
 
 .delete-logo {
+  border: none;
   margin: 10px;
   background-color: rgb(5, 142, 142);
   align-self: center;
   width: 100px;
   font-size: 20px;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   box-sizing: border-box;
 }
 .linkBtn {
+  border: none;
+  width: 500px;
   margin-bottom: 5px;
   background-color: rgb(5, 142, 142);
   align-self: center;
-  width: fit-content;
   height: fit-content;
   max-height: 50px;
   overflow: hidden;
   font-size: 20px;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   box-sizing: border-box;
 }

@@ -33,6 +33,9 @@ html {
   margin: 0px;
 }
 .contentBlock {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: whitesmoke;
   align-self: center;
   background-position: center;
   background-color: #13232f;
@@ -40,14 +43,11 @@ html {
   padding-top: 10px;
   margin-bottom: 50px;
   padding-bottom: 10px;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: whitesmoke;
   text-align: center;
   display: flex;
   flex-direction: column;
   width: 55%;
-  min-width: 500px;
+  min-width: fit-content;
 }
 .commentContainer {
   height: 300px;
@@ -70,6 +70,7 @@ html {
 }
 
 #commentBtn {
+  border: none;
   margin-bottom: 5px;
   background-color: rgb(5, 142, 142);
   align-self: center;
@@ -85,6 +86,7 @@ html {
   background: rgb(7, 193, 193);
 }
 .linkBtn {
+  border: none;
   text-decoration: none;
   display: block;
   align-self: center;
@@ -165,6 +167,7 @@ textarea {
   align-items: stretch;
   box-sizing: border-box;
   width: 100%;
+  margin: 10px;
 }
 .descriptionLabel {
   font-size: 30px;
