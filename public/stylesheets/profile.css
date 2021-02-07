@@ -17,6 +17,7 @@ body {
   height: 300px;
   margin-left: 40px;
   margin-right: 40px;
+  min-width: 700px;
 }
 
 .space1 {
@@ -48,8 +49,8 @@ body {
 }
 
 .user-info {
-  min-width: 300px;
-  width: 300px;
+  min-width: 350px;
+  width: 90%;
 }
 
 .space2 {
@@ -57,18 +58,39 @@ body {
 }
 
 .user-name {
+  margin-top: 10px;
   max-height: 50px;
   font-size: 30px;
-  padding-bottom: 20px;
+  margin-left: 5px;
+  padding-bottom: 10px;
 }
 
 .user-message {
-  height: 30px;
+  margin: 5px;
+  padding: 5px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: teal;
+  height: 150px;
+  width: 90%;
+  min-width: 50px;
   font-size: 20px;
+  overflow-y: scroll;
 }
 
 .user-id {
   height: 30px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.uId {
+  padding: 5px;
+  margin: 5px;
+}
+.userName {
+  padding: 5px;
+  margin: 5px;
 }
 
 .edit-profile-button {
@@ -103,8 +125,8 @@ body {
 .links-container {
   min-height: 200px;
   min-width: 750px;
+  max-width: 1000px;
   align-self: center;
-  border-style: solid;
   border-style: solid;
   border-radius: 5px;
   border-color: whitesmoke;

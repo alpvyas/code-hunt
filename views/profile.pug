@@ -4,16 +4,16 @@ block content
   link(rel='stylesheet' href='/stylesheets/profile.css')
   script(src="./javascripts/profile-delete.js" type="module" defer)
   .profile-container
-    .space1
     .user-logo-container
       .user-logo
         .logo= user.first_name[0]
     .user-info
-      .space2
       .user-name
         strong(class="strong")= `${user.first_name} ${user.last_name}`
-      .user-message= `I am ${user.first_name}`
-      .user-id= `#${user.id }    @${user.first_name}_${user.last_name}`
+      .user-message=`${user.bio}`
+      .user-id
+        .uId=`#${user.id}`
+        .userName=`@${user.username}`
   .space3
     .display
       strong(class="strong") MY LINKS
