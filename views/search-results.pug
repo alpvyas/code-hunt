@@ -1,0 +1,62 @@
+extends navbar.pug
+
+block content
+  link(rel="stylesheet" href="/stylesheets/homepage.css")
+  .content_container
+    .content_header
+      span(class='styles_font') Search Results:
+    .post_list_container
+      div
+        ul.post_list
+          each link in links
+            a(href=`/posts/${link.id}/`)
+              li
+                .post_item
+                  .post_content
+                    .post_thumbnail
+                      if link.languageId === 1
+                        img(src='/images/python-3.png' class='logo')
+                      if link.languageId === 2
+                        img(src='/images/c-plus-plus.png' class='logo')
+                      if link.languageId === 3
+                        img(src='/images/javascript-2.png' class='logo')
+                      if link.languageId === 4
+                        img(src='/images/java.png' class='logo')
+                      if link.languageId === 5
+                        img(src='/images/fortran.png' class='logo')
+                      if link.languageId === 6
+                        img(src='/images/cs.png' class='logo')
+                      if link.languageId === 7
+                        img(src='/images/c.png' class='logo')
+                      if link.languageId === 8
+                        img(src='/images/swift.png' class='logo')
+                      if link.languageId === 9
+                        img(src='/images/html.png' class='logo')
+                      if link.languageId === 10
+                        img(src='/images/css.png' class='logo')
+                      if link.languageId === 11
+                        img(src='/images/matlab-2.png' class='logo')
+                      if link.languageId === 12
+                        img(src='/images/php.png' class='logo')
+                      if link.languageId === 13
+                        img(src='/images/ruby.png' class='logo')
+                      if link.languageId === 14
+                        img(src='/images/sql.png' class='logo')
+                      if link.languageId === 15
+                        img(src='/images/postgresql.png' class='logo')
+                      if link.languageId === 16
+                        img(src='/images/vb.png' class='logo')
+                      if link.languageId === 17
+                        img(src='/images/scala.png' class='logo')
+                    .post_info
+                      h3 #{link.title}
+                      p(class='post_desc') #{link.description}
+                      .bottom_bar
+                        .comment_icon
+                          span(class='12345')
+                        .language_bar
+                          a(class='lang_link') #{link.Language.name}
+                  .vote_btn_container
+                    button(class='vote_btn')
+    .footer
+      include about-us.pug

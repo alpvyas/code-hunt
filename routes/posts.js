@@ -128,7 +128,7 @@ router.get(
       include: "Language",
     });
     const languages = await db.Language.findAll({ order: [["name", "ASC"]] });
-    res.render("home", {
+    res.render("search-results", {
       newestLink,
       languages,
       links,

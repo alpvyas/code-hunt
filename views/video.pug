@@ -45,7 +45,7 @@ block content
         .descriptionBox
           p(class="description") #{video.description}
         .videoLinkContainer
-          a(class="videoLink" id=`${video.link}`)
+          a(class="videoLink" id=`${video.link}` target="_blank" rel="noreferrer noopener")
             button(class="linkBtn") Link to Video
         label(class='commentsLabel') Comments
         .addComment
