@@ -14,23 +14,24 @@ block content
         .outerContainer
             .post-form-container
                 h1(class='pageTitle') Create a New Post
-                form(method="post" action="/posts/new")
+                form(method="post" action="/posts/new" class="form")
                     input(type="hidden" name="_csrf" value=token)
                     .form-item
-                        label(for="title") Post Title
+                        label(for="title" class="label") Post Title
                         input(id="title" type="text", name="title" value=title)
                     .form-item
-                        label(for="description") Video Description
+                        label(for="description" class="label") Video Description
                         textarea(id="description" name="description" cols="30" rows="10" required value=description)
                     .form-item
-                        label(for="link") Video Link
+                        label(for="link" class="label") Video Link
                         input(id="link" type="text", name="link" required value=link)
                     .form-item
-                        label(for="language") Programming Language
+                        label(for="language" class="label") Programming Language
                         select(name="languageId")
                             each language in languages
                                 option(value=language.id)= language.name
-                    .form-item
-                        button.button(type="submit") Create
+                    .btnContainer
+                        .formBtn
+                            button.button(type="submit") Create
     .footer
             include about-us.pug

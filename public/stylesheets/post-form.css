@@ -4,10 +4,14 @@
 }
 
 .pageTitle {
+  background-color: rgb(5, 142, 142);
   font-size: 40px;
   margin: 10px;
   padding: 10px;
   color: whitesmoke;
+  border-radius: 10px;
+  width: 880px;
+  align-self: center;
 }
 .error-display {
   align-self: center;
@@ -27,16 +31,15 @@
   margin-top: 25px;
 }
 .post-form-container {
-  width: 40%;
+  padding: 20px;
+  width: 900px;
   display: flex;
   align-self: center;
   background-position: center;
   background-color: #13232f;
   margin-top: 50px;
   padding-top: 10px;
-  border-style: solid;
   border-radius: 10px;
-  border-color: whitesmoke;
   text-align: center;
 
   flex-direction: column;
@@ -47,9 +50,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
-  padding: 10px;
+  margin-top: 50px;
   color: whitesmoke;
+  padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
 }
 
 .button {
@@ -72,6 +77,8 @@
 input,
 textarea,
 select {
+  margin-top: 10px;
+  border: 1px solid black;
   border-radius: 5px;
   color: black;
   width: 100%;
@@ -82,6 +89,17 @@ input,
 select {
   height: auto;
 }
+
+.label {
+  background-color: rgb(5, 142, 142);
+  width: 100%;
+  border-radius: 10px;
+}
+.formBtn {
+  margin-top: 20px;
+  align-self: center;
+  width: 450px;
+}
 .footer {
   display: grid;
   position: fixed;
@@ -91,4 +109,9 @@ select {
   background-color: #13232f;
   color: whitesmoke;
   text-align: center;
+}
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
