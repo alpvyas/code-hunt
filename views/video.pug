@@ -6,53 +6,54 @@ block content
       .contentBlock
         .videoTitle
           h1(class="videoId" id=`${video.id}`) #{video.title}
-          .languageImg
-            if video.languageId === 1
-              img(src='/images/python-3.png' class='logo')
-            if video.languageId === 2
-              img(src='/images/c-plus-plus.png' class='logo')
-            if video.languageId === 3
-              img(src='/images/javascript-2.png' class='logo')
-            if video.languageId === 4
-              img(src='/images/java.png' class='logo')
-            if video.languageId === 5
-              img(src='/images/fortran.png' class='logo')
-            if video.languageId === 6
-              img(src='/images/cs.png' class='logo')
-            if video.languageId === 7
-              img(src='/images/c.png' class='logo')
-            if video.languageId === 8
-              img(src='/images/swift.png' class='logo')
-            if video.languageId === 9
-              img(src='/images/html.png' class='logo')
-            if video.languageId === 10
-              img(src='/images/css.png' class='logo')
-            if video.languageId === 11
-              img(src='/images/matlab-2.png' class='logo')
-            if video.languageId === 12
-              img(src='/images/php.png' class='logo')
-            if video.languageId === 13
-              img(src='/images/ruby.png' class='logo')
-            if video.languageId === 14
-              img(src='/images/sql.png' class='logo')
-            if video.languageId === 15
-              img(src='/images/postgresql.png' class='logo')
-            if video.languageId === 16
-              img(src='/images/vb.png' class='logo')
-            if video.languageId === 17
-              img(src='/images/scala.png' class='logo')
-        label(class='descriptionLabel') About this video:
+        .trio
+          if video.languageId === 1
+            img(src='/images/python-3.png' class='logo')
+          if video.languageId === 2
+            img(src='/images/c-plus-plus.png' class='logo')
+          if video.languageId === 3
+            img(src='/images/javascript-2.png' class='logo')
+          if video.languageId === 4
+            img(src='/images/java.png' class='logo')
+          if video.languageId === 5
+            img(src='/images/fortran.png' class='logo')
+          if video.languageId === 6
+            img(src='/images/cs.png' class='logo')
+          if video.languageId === 7
+            img(src='/images/c.png' class='logo')
+          if video.languageId === 8
+            img(src='/images/swift.png' class='logo')
+          if video.languageId === 9
+            img(src='/images/html.png' class='logo')
+          if video.languageId === 10
+            img(src='/images/css.png' class='logo')
+          if video.languageId === 11
+            img(src='/images/matlab-2.png' class='logo')
+          if video.languageId === 12
+            img(src='/images/php.png' class='logo')
+          if video.languageId === 13
+            img(src='/images/ruby.png' class='logo')
+          if video.languageId === 14
+            img(src='/images/sql.png' class='logo')
+          if video.languageId === 15
+            img(src='/images/postgresql.png' class='logo')
+          if video.languageId === 16
+            img(src='/images/vb.png' class='logo')
+          if video.languageId === 17
+            img(src='/images/scala.png' class='logo')
+          .videoLinkContainer
+            a(class="videoLink" id=`${video.link}` target="_blank" rel="noreferrer noopener")
+            button(class="linkBtn") Video Link
         .descriptionBox
+          label(class='descriptionLabel') About this video
           p(class="description") #{video.description}
-        .videoLinkContainer
-          a(class="videoLink" id=`${video.link}` target="_blank" rel="noreferrer noopener")
-            button(class="linkBtn") Link to Video
-        label(class='commentsLabel') Comments
         .addComment
           form.comment-form
+            label(class='commentsLabel') Add Comment
             textarea(name="body" id="commentBody" rows=2 cols=25 required)
-            button(type="submit" id='commentBtn') Add Comment
-        .commentContainer
+            button(type="submit" id='commentBtn') Submit
+        #comments.comment-form
+          label(class='commentsLabel') Comments
           .comments
           script(src="/javascripts/comments.js" defer)
     .footer

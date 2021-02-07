@@ -8,6 +8,7 @@ html {
   display: flex;
   flex-direction: column;
 }
+
 .footer {
   display: grid;
   position: fixed;
@@ -24,18 +25,20 @@ html {
 }
 .logo {
   padding: 0px;
-  margin: 0px;
-  height: 50px;
-  width: 50px;
+  margin-right: 50px;
+  height: 150px;
+  width: 150px;
 }
-.languageImg {
-  padding: 0px;
-  margin: 0px;
+.trio {
+  margin: 10px;
+  width: 100%;
+  align-self: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .contentBlock {
-  border-style: solid;
-  border-radius: 10px;
-  border-color: whitesmoke;
   align-self: center;
   background-position: center;
   background-color: #13232f;
@@ -46,12 +49,13 @@ html {
   text-align: center;
   display: flex;
   flex-direction: column;
-  width: 55%;
-  min-width: fit-content;
+  width: 60%;
+  min-width: 900px;
+  max-width: 1125px;
 }
 .commentContainer {
   height: 300px;
-  width: 500px;
+  width: 794px;
   background-color: #13232f;
   background-color: #f3f3f3;
   border-style: solid;
@@ -77,7 +81,7 @@ html {
   width: 150px;
   font-size: 20px;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -86,17 +90,18 @@ html {
   background: rgb(7, 193, 193);
 }
 .linkBtn {
+  margin-left: 50px;
+  padding: 5px;
   border: none;
   text-decoration: none;
   display: block;
-  align-self: center;
-  width: 100%;
   font-size: 40px;
   background-color: rgb(5, 142, 142);
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
   box-sizing: border-box;
+  width: 200px;
 }
 .linkBtn:hover,
 .linkBtn:focus {
@@ -105,40 +110,48 @@ html {
 }
 
 .authorText {
-  font-size: 10px;
+  margin: 10px;
+  font-size: 18px;
 }
 .videoId {
   align-self: center;
   font-size: 40px;
   color: whitesmoke;
+  background-color: rgb(5, 142, 142);
   margin: 10px;
   padding: 10px;
-}
-.logo {
-  height: 50px;
-  width: 50px;
+  width: 780px;
+  border-radius: 10px;
 }
 textarea {
   resize: none;
+  width: 757.5px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 .commentBox {
   margin: 5px;
   border-radius: 10px;
   border: 1px solid black;
   box-sizing: border-box;
-  width: 98%;
-  height: 100px;
-  overflow: auto;
+  width: 780px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .deleteBtn {
-  height: 20px;
+  border: none;
+  margin-bottom: 5px;
   background-color: rgb(5, 142, 142);
   align-self: center;
-  width: 20%;
-  font-size: 14px;
+  width: 150px;
+  font-size: 20px;
   color: #fff;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 10px;
   box-sizing: border-box;
 }
 .deleteBtn:hover,
@@ -146,10 +159,10 @@ textarea {
   background: rgb(7, 193, 193);
 }
 .commentText {
-  font-size: 12px;
-  height: 50px;
+  font-size: 22px;
   width: 100%;
   text-align: center;
+  margin: 10px;
 }
 .addComment {
   width: 230px;
@@ -171,36 +184,64 @@ textarea {
 }
 .descriptionLabel {
   font-size: 30px;
-  margin-top: 10px;
-  padding-top: 10px;
   color: whitesmoke;
+  border-radius: 5px;
+  background-color: rgb(5, 142, 142);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .commentsLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 100%;
+  background-color: rgb(5, 142, 142);
   font-size: 30px;
-  margin-top: 10px;
   padding-top: 10px;
+  padding-bottom: 10px;
   color: whitesmoke;
 }
 .description {
-  font-size: 18px;
+  font-size: 24px;
   text-align: left;
+  margin-left: 10px;
 }
 .descriptionBox {
   margin: 10px;
   padding: 10px;
   align-self: center;
   background-color: #f3f3f3;
-  border: 3px solid black;
   box-sizing: border-box;
-  width: 500px;
-  height: 200px;
+  width: 800px;
+  height: fit-content;
+  min-height: 400px;
   border-radius: 10px;
   overflow: auto;
 }
 .videoLinkContainer {
-  align-self: center;
   box-sizing: border-box;
 }
 .videoLink {
   text-decoration: none;
+}
+.comment-form {
+  width: 780px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f3f3;
+  margin-top: 20px;
+}
+#comments {
+  min-height: 400px;
 }
