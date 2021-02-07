@@ -34,7 +34,7 @@ html {
 
 .post_list_container,
 .new_post_container {
-  min-height: 200px;
+  min-height: 160px;
   position: relative;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
