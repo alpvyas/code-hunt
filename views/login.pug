@@ -15,12 +15,20 @@ html
                 div(class="imgShell")
                   img(class='code_hunt_logo' src='/images/logo.png')
                 .login-tab-group
-                  .register-tab.active
-                    a.login.active(href='#register')
-                      button(class='regBtn active') Register
-                  .login-tab
-                    a.login(href='#login')
-                      button(class='loginBtn') Login
+                  if login
+                    .register-tab
+                      a.login(href='#register')
+                        button(class='regBtn') Register
+                    .login-tab.active
+                      a.login.active(href='#login')
+                        button(class='loginBtn active') Login
+                  else
+                    .register-tab.active
+                      a.login.active(href='#register')
+                        button(class='regBtn active') Register
+                    .login-tab
+                      a.login(href='#login')
+                        button(class='loginBtn') Login
                 form(action='/demo' method='post')
                   input(type='hidden' name='_csrf' value=token)
                   button.button(type='submit' class='demoBtn') Demo
