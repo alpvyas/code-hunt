@@ -13,6 +13,7 @@ module.exports = {
     },
     randomComment = () => {
       const comments = [
+        "First!",
         "Awesome!",
         "So cool!",
         "Thank you!",
@@ -36,7 +37,7 @@ module.exports = {
         "There are too many comments!",
         "There are not enough comments!",
       ];
-      return comments[Math.floor(Math.random() * 22)];
+      return comments[Math.floor(Math.random() * 23)];
     }
   ) => {
     return queryInterface.bulkInsert("Comments", [
