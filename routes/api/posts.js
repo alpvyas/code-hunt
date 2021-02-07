@@ -36,6 +36,11 @@ router.get(
       limit: 100,
       include: "User",
     });
+    comments.forEach((comment) => {
+      if (!comment.body.includes(" ") && comment.body.length > 26) {
+        comment.body = `${comment.body.substring(0, 26)}...`;
+      }
+    });
 
     res.json({ comments, userId: res.locals.user.id });
   })
@@ -61,6 +66,11 @@ router.post(
         limit: 100,
         include: "User",
       });
+      comments.forEach((comment) => {
+        if (!comment.body.includes(" ") && comment.body.length > 26) {
+          comment.body = `${comment.body.substring(0, 26)}...`;
+        }
+      });
       res.json({ userId: res.locals.user.id, comments });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -69,6 +79,11 @@ router.post(
         order: [["createdAt", "DESC"]],
         limit: 100,
         include: "User",
+      });
+      comments.forEach((comment) => {
+        if (!comment.body.includes(" ") && comment.body.length > 26) {
+          comment.body = `${comment.body.substring(0, 26)}...`;
+        }
       });
       res.json({
         userId: res.locals.user.id,
@@ -94,7 +109,11 @@ router.delete(
       limit: 100,
       include: "User",
     });
-
+    comments.forEach((comment) => {
+      if (!comment.body.includes(" ") && comment.body.length > 26) {
+        comment.body = `${comment.body.substring(0, 26)}...`;
+      }
+    });
     res.json({ comments, userId: res.locals.user.id });
   })
 );

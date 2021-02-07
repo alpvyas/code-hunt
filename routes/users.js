@@ -124,6 +124,14 @@ router.get(
       order: [["createdAt", "DESC"]],
       include: "Language",
     });
+    links.forEach((link) => {
+      if (!link.title.includes(" ") && link.title.length > 26) {
+        link.title = `${link.title.substring(0, 26)}...`;
+      }
+    });
+    if (!newestLink.title.includes(" ") && newestLink.title.length > 26) {
+      newestLink.title = `${newestLink.title.substring(0, 26)}...`;
+    }
     res.render("home", { title: "Home", links, languages, newestLink });
   })
 );
@@ -137,6 +145,9 @@ router.get(
       where: { userId },
       include: "Language",
     });
+    if (!user.bio.includes(" ") && user.bio.length > 26) {
+      user.bio = `${user.bio.substring(0, 26)}...`;
+    }
     userLinks.forEach((link) => {
       if (link.title.length > 50) {
         link.title = `${link.title.substring(0, 50)}...`;
