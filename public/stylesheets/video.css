@@ -133,7 +133,7 @@ textarea {
 .commentBox {
   margin: 5px;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px black;
   box-sizing: border-box;
   width: 780px;
   height: auto;
