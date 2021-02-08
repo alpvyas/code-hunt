@@ -1,13 +1,22 @@
 extends navbar.pug
 
 block content
-  link(rel="stylesheet" href="/stylesheets/homepage.css")
+  link(rel="stylesheet" href="/stylesheets/search-results.css")
   .content_container
     .content_header
       span(class='styles_font') Search Results:
     .post_list_container
       div
         ul.post_list
+          li
+            if !links.length | searchTerm === ""
+              .post_item
+                .post_content
+                  .post_thumbnail
+                    img(src='/images/shrug.png' class='shrug')
+                  .post_info
+                    h3 Sorry, we couldn't find anything.
+                    p(class='post_desc') Try a new search.
           each link in links
             a(href=`/posts/${link.id}/`)
               li

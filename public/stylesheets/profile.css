@@ -139,16 +139,17 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: whitesmoke;
-  border-radius: 10px;
+  background-color: rgb(5, 142, 142);
   height: 70px;
-  margin: 10px;
+  border-bottom: 2px solid whitesmoke;
 }
 
 .mylink-container {
   border-style: solid;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  background-color: rgb(5, 142, 142);
 }
 
 .delete {
