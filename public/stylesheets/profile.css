@@ -125,12 +125,11 @@ body {
 .links-container {
   min-height: 200px;
   min-width: 750px;
-  max-width: 1000px;
   align-self: center;
   border-style: solid;
   border-radius: 5px;
   border-color: whitesmoke;
-  width: 80%;
+  width: 90%;
   background-color: teal;
 }
 
@@ -138,7 +137,7 @@ body {
   border: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: rgb(5, 142, 142);
   height: 70px;
   border-bottom: 2px solid whitesmoke;
@@ -152,17 +151,12 @@ body {
   background-color: rgb(5, 142, 142);
 }
 
-.delete {
-  border: none;
-  padding-left: 200px;
-}
-
 .delete-logo {
+  height: 100%;
   border: none;
-  margin: 10px;
   background-color: rgb(5, 142, 142);
   align-self: center;
-  width: 100px;
+  width: 100%;
   font-size: 20px;
   color: #fff;
   border-radius: 5px;
@@ -170,13 +164,12 @@ body {
   box-sizing: border-box;
 }
 .linkBtn {
+  height: 100%;
   border: none;
-  width: 500px;
   margin-bottom: 5px;
+  width: 100%;
   background-color: rgb(5, 142, 142);
   align-self: center;
-  height: fit-content;
-  max-height: 50px;
   overflow: hidden;
   font-size: 20px;
   color: #fff;
@@ -190,17 +183,29 @@ body {
 .delete-logo:focus {
   background: rgb(7, 193, 193);
 }
-.button-container,
-.description-container {
+.button-container {
+  height: 100%;
   align-self: center;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.description-container {
+  height: 100%;
+  align-self: center;
+  width: 40%;
 }
 .langLogo {
-  height: 50px;
+  height: 70px;
   width: auto;
 }
 .imgContainer {
-  margin-left: 10px;
+  justify-content: center;
   align-self: center;
-  height: 50px;
-  width: auto;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
