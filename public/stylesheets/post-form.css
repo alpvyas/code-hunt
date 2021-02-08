@@ -73,10 +73,10 @@
 .button:focus {
   background: rgb(7, 193, 193);
 }
-
-input,
-textarea,
-select {
+#title,
+#description,
+#link,
+#select {
   margin-top: 10px;
   border: 1px solid black;
   border-radius: 5px;

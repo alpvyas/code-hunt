@@ -27,7 +27,7 @@ block content
                         input(id="link" type="text", name="link" required value=link)
                     .form-item
                         label(for="language" class="label") Programming Language
-                        select(name="languageId")
+                        select(name="languageId" id='select')
                             each language in languages
                                 option(value=language.id)= language.name
                     .btnContainer

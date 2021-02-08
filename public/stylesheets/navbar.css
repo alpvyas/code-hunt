@@ -17,8 +17,10 @@ body {
 }
 
 .search_icon {
-  width: 18px;
-  height: 18px;
+  width: 35px;
+  height: 35px;
+  margin: 1px;
+  align-self: flex-end;
 }
 
 .navbar {
@@ -32,16 +34,16 @@ body {
 .navbar_container {
   height: inherit;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .navbar_search {
+  width: 300px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   border: 1px solid lightgray;
   height: 40px;
-  padding: 0% 1%;
 }
 
 .navbar_categories {
@@ -53,6 +55,8 @@ body {
 }
 
 .search_label {
+  height: 100%;
+  width: 90%;
   display: flex;
   justify-content: center;
 }
@@ -62,17 +66,20 @@ body {
   outline: none;
 }
 
-input[type='text'] {
-  width: 120px;
-  font-size: 16px;
+#searchTerm.input_field {
+  height: 100%;
+  width: 40%;
+  min-width: 100px;
+  margin-right: 5px;
+  font-size: 14px;
   background-color: white;
   background-position: 10px 10px;
   background-repeat: no-repeat;
   -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
-input[type='text']:focus {
+#searchTerm.input_field:focus {
   width: 100%;
 }
 
@@ -82,12 +89,10 @@ input[type='text']:focus {
 }
 
 .searchbtn {
-  border: 0.5px solid lightgray;
   font-size: 14px;
   color: #6f6f6f;
   background-color: inherit;
   font-family: inherit;
-  margin: 0;
 }
 
 .dropdown .dropbtn,
@@ -116,8 +121,11 @@ input[type='text']:focus {
 .dropdown:hover,
 .dropbtn,
 .searchbtn:hover,
-.postbtn:hover {
+.postbtn:hover,
+.profilebtn:hover,
+.logout_btn:hover {
   background-color: lightgray;
+  border-radius: 5px;
 }
 
 .dropdown_content {

@@ -14,9 +14,8 @@ html
         .navbar_search
           form(method='get' action="/posts/search")
             label(class='search_label')
-              img(class='search_icon' src='/images/search-icon.png')
               input(class='input_field' type="text" name="searchTerm" id="searchTerm" placeholder='Search Posts')
-              button(class='searchbtn' type="submit") Search
+              input(name='submit' class='search_icon searchbtn' type='image' src='/images/search-icon.png')
         .navbar_categories
           form(method='get' action="/posts/search")
             .dropdown
