@@ -62,6 +62,20 @@ body {
   outline: none;
 }
 
+input[type='text'] {
+  width: 120px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type='text']:focus {
+  width: 100%;
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
