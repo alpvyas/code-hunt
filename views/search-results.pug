@@ -8,6 +8,15 @@ block content
     .post_list_container
       div
         ul.post_list
+          li
+            if !links.length | searchTerm === ""
+              .post_item
+                .post_content
+                  .post_thumbnail
+                    img(src='/images/shrug.png' class='shrug')
+                  .post_info
+                    h3 Sorry, we couldn't find anything.
+                    p(class='post_desc') Try a new search.
           each link in links
             a(href=`/posts/${link.id}/`)
               li
